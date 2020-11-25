@@ -1,0 +1,60 @@
+
+
+items table
+-------------------
+items name =[surwaal] remaing quantity=[200 "+ receive surwaal btn"]	price=[$30 "change price btn"]	 balance=[$40 "show customers btn" ]   action=["show recieved history btn"  edit, delete]
+			    
+
+
+- login page should like trail ragistration so that she can still tell others and other can see as well 
+
+
+
+
+
+receiving item form
+----------------------
+
+item name: <select>
+quantity:___             remaings:____
+total cost:___
+price____ 
+description_______
+
+
+
+
+
+received history for (item) page 
+
+item name,quantity,cost,description | edit , delete 
+
+
+
+
+
+edit item form 
+--------------
+
+ item name |  item price 
+
+
+
+
+
+
+
+
+
+
+delete rulls:
+	what about remaings
+	deleting custmer item = should i update the remaings ?
+
+
+
+
+
+
+
+

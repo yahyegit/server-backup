@@ -1,0 +1,3 @@
+.hide_for_print,.fg-toolbar{
+	display: none !important;
+}

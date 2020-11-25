@@ -1,0 +1,821 @@
+<html><head> <style>  
+    @import url('select.css');
+*{
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+
+
+body{
+
+	font-family:Arial;
+	font-size:12px;
+	color:#303030;
+ 
+}
+
+label{
+	display:inline-block;
+	font-weight:bold;
+	text-align:right;
+	line-height:25px;
+	font-size:16px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+
+ 
+ 
+/*table design */
+
+.table {
+	
+  background: white;
+  border-radius:31px;
+  border-collapse:collapse;
+ 
+  margin: auto;
+  
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+  display: table; 
+  padding: 31px;  
+ 
+}
+
+
+.table th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: bold;
+  padding:16px;
+  
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table th:first-child {
+  border-top-left-radius:3px;
+}
+
+.table th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+.table tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+
+.table tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;
+}
+ 
+.table tr:first-child {
+  border-top:none;
+}
+
+.table tr:last-child {
+  border-bottom:none;
+}
+ 
+.table tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+.table tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+ 
+.table td {
+  background:#FFFFFF;
+  padding:15px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:16px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.table td:last-child {
+  border-right: 0px;
+}
+
+/* end of table design */
+
+ 
+ 
+
+
+
+
+
+
+
+
+img{
+	border:none;
+}
+h2{ /*Dark gray titles*/
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h3{ /*For titles*/
+	margin-bottom:15px;
+	font-size:22px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+h4{
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+h5{ /*address prompt*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h6{ /*address in shipping info*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+
+
+.dates{
+	color:#CC6600;
+	font-weight:bold;
+}
+.offers{
+	color:#404040;
+	font-weight:bold;
+}
+.usernames{
+	color:#006699;
+	font-weight:900;
+}
+.subtitles{
+	color:#707070;
+}
+#wrapper{
+	 
+	margin:15px auto;
+	padding:10px;
+
+	}
+
+
+
+
+.button {
+	-moz-box-shadow: 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+	box-shadow: 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:2px 10px;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+.buttons
+{
+	display: inline-block;
+	white-space: nowrap;
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+	background-image: -webkit-linear-gradient(top, #eee, #ccc);
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -ms-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+	border: 1px solid #777;
+	padding: 0 1.5em;
+	margin: 0.1em;
+	font: bold 1em/2em Arial, Helvetica;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	-moz-border-radius: .2em;
+	-webkit-border-radius: .2em;
+	border-radius: .2em;
+	-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.buttons:hover
+{
+	background-color: #ddd;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+	background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+	background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+	background-image: -o-linear-gradient(top, #fafafa, #ddd);
+	background-image: linear-gradient(top, #fafafa, #ddd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+}
+
+.buttons:active
+{
+	-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	position: relative;
+	top: 1px;
+}
+
+.buttons:focus
+{
+	outline: 0;
+	background: #fafafa;
+}
+
+.buttons:before
+{
+	background: #ccc;
+	background: rgba(0,0,0,.1);
+	float: left;
+	width: 1em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 1em 0 -1em;
+	padding: 0 .2em;
+	-moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-moz-border-radius: .15em 0 0 .15em;
+	-webkit-border-radius: .15em 0 0 .15em;
+	border-radius: .15em 0 0 .15em;
+        pointer-events: none;
+}
+
+/* Hexadecimal entities for the icons */
+
+.add:before
+{
+	content: "\271A";
+}
+
+.edit:before
+{
+	content: "\270E";
+}
+
+.delete:before
+{
+	content: "\2718";
+}
+
+.save:before
+{
+	content: "\2714";
+}
+
+.email:before
+{
+	content: "\2709";
+}
+
+.like:before
+{
+	content: "\2764";
+}
+
+.next:before
+{
+	content: "\279C";
+}
+
+.star:before
+{
+	content: "\2605";
+}
+
+.spark:before
+{
+	content: "\2737";
+}
+
+.play:before
+{
+	content: "\25B6";
+}
+
+
+
+
+
+
+
+
+
+body {
+	background-color: #f0f0f0;
+	font-family: helvetica, "Times New Roman", Times, serif;
+}
+
+h3 {
+ margin: 5px; /* vertical-align: middle; */ 
+ /* text-align: left; */ border-bottom: 2px solid blue; 
+ width: auto; 
+ /* margin-left: 15%; */ 
+}
+
+a:focus {
+	outline: none;
+}
+.clear {
+	clear: both;
+}
+
+.error{
+	border-radius:1em;
+	color:red;
+	background-color:#000;
+	padding:10px;
+	margin:10px;
+	font-family:Arial;
+	font-weight:bold;
+	text-shadow:1px 1px 3px #080808;
+}
+
+
+.date_manual{    
+
+width: 178px !important;
+
+}
+
+#settings_bage{
+padding:10px;
+}
+#logout{
+float:right;
+}
+#hr,#hr2{
+margin:3px;
+
+box-shadow: 3px 0px 8px #FC05DC;
+}
+ 
+ #hover_div{
+ position:absolute;
+ display:none;
+ padding:5px;
+ background:#ccc;
+ color:blue;
+ font-style:italic;
+ font-size:11px;
+ border-radius:2em;
+  border-bottom-left-radius:0em;
+ }
+ 
+
+#settings_bage a{
+float:right;
+}
+#settings_bage p{
+	padding:4px;
+	display:block;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	width:700px;
+}
+#totals pre, #totals2 pre{
+		-moz-box-shadow: 0px 1px 0px 0px #fed897;
+		-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+		box-shadow: 0px 1px 0px 0px #fed897;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+		 
+		border-radius:5px;
+		color:#ffffff;
+		font-family:arial;
+		font-size:14px;
+		font-weight:bold;
+		padding:5px;
+		 
+		display:inline-block;
+}
+
+
+
+#totals div, #totals2 div{
+	width:auto; 
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    display:inline-block;
+}
+
+
+#totals strong, #totals2 strong{
+	/* width:700px !important; */
+  background: #FFFFFF;
+    padding: 15px;
+    padding-left:0;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 16px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+div#totals  .table tr:hover td ,div#totals2  .table tr:hover td,div#totals  td ,div#totals2  td{
+  background:#FFFFFF;
+}
+div#totals  th ,div#totals2  th{
+  width:165px;
+}
+
+
+
+#page-wrap {
+	position: relative;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+}
+
+
+#add_div, #change_delete_pass, #edit_div ,#new_exp_div2, #worning_to_delete_exp, #new_exp_div,#edit_exp_div, #worning_to_delete,#error_del, #change_username, #change_pass,#feedback, #Deleted,#feedback_log, #feedback_3{
+
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#61FD0A; 
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+ 
+
+
+#blance_sidbar{
+position: absolute;
+text-align:left;
+left: 577;
+top: 22;
+width:580px;
+	
+	padding:10px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:10px 10px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+	height:600px;   /* 600px */
+	overflow-x:auto;
+}
+#blance_sidbar pre{
+box-shadow: 5px 5px 15px rgba(148, 26, 99, 0.41); /*zero*/
+	border-radius:7px;
+	margin:4px;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	padding:4px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+
+}
+
+
+#blance_sidbar span{
+color:red;
+}
+
+
+
+ #castomer_details, #castomer_details2{
+ 
+ }
+
+
+#main_details_bage{
+	margin:10px;
+	padding:20px;
+	
+
+}
+
+ul#main-nav {
+	margin-left: 20px;
+}
+ul#main-nav li {
+	float: left;
+	position: relative;
+	margin-left: -20px;
+	display: inline;
+}
+ul#main-nav li a {
+	position: relative;
+	width: 110px;
+	height: 29px;
+	display: block;
+	background-image: url('../images/tabs.png');
+	background-position: center center;
+	color: #44403b;
+	text-decoration: none;
+	font-size: 14px;
+	padding-top: 12px;
+	text-align: left;
+	padding-left: 30px;
+	font-weight: bold;
+}
+ul#main-nav li.home a {
+	background-image: url('../images/tab-home.png');
+}
+ul#main-nav li.current a {
+	background-position: top;
+	color: #ffffff;
+}
+ul#main-nav li a:hover {
+	background-position: bottom;
+	color: #ffffff;
+}
+ul#main-nav li.current a:hover {
+	background-position: top; /*To Prevent the Current tab from changing colour on hover*/
+	color: #ffffff;
+}
+ul#main-nav li.current {
+	z-index: 100;
+}
+ul#main-nav li.home {
+	z-index: 100;
+}
+ul#main-nav li.portfolio {
+	z-index: 99;
+}
+ul#main-nav li.services {
+	z-index: 98;
+}
+ul#main-nav li.about {
+	z-index: 97;
+}
+ul#main-nav li.contact {
+	z-index: 96;
+}
+#image {
+	position: relative;
+	float: left;
+	margin-left: 40px;
+	margin-top: 25px;
+}
+#container {
+
+	position: relative;
+	background-color: #577295;
+	background-image: url('../images/featured-border.jpg');
+	background-repeat: repeat-y;
+	background-position: left;
+ 
+	padding:10px;
+	min-height:669px;
+	 
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px;
+ 
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+
+
+
+#searchbox
+{
+	background: #eaf8fc;
+	background-image: -moz-linear-gradient(#fff, #d4e8ec);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));
+	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c4d9df #a4c3ca #83afb7;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin:30px;
+	overflow: hidden; /* Clear floats */
+}
+
+
+
+
+
+#search, #search_button
+{
+	
+}
+
+#search
+{
+	padding: 5px 9px;
+	height: 35px;
+	width: 380px;
+	border: 1px solid #a4c3ca;
+	font: normal 13px 'trebuchet MS', arial, helvetica;
+
+	background: #f1f1f1;
+	
+	-moz-border-radius: 50px 3px 3px 50px;
+	 border-radius: 50px 3px 3px 50px;
+	 -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+/* ----------------------- */
+
+#search_button
+{		
+	background: #6cbb6b;
+	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7eba7c #578e57 #447d43;
+	
+	 -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 10px;
+        padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #23441e;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#search_button:hover
+{		
+	background: #95d788;
+	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+}	
+
+#search_button:active
+{		
+	background: #95d788;
+	outline: none;
+   
+	 -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#search_button::-moz-focus-inner
+{
+       border: 0;  /* Small centering fix for Firefox */
+}		
+
+
+
+
+
+
+
+.input{
+	font:bold 16px verdana;
+	padding:5px; 
+	border:1px solid #b9bdc1;
+	width:200px;
+	color:#505050;
+}
+.input:focus{
+	background-color:white;
+	border:1px solid #f6bdd3;
+}
+
+.hover{
+color:#fff;
+cursor: pointer;
+
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+}
+
+.feedback {
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+.remove_default_table_style{
+ 
+} body{ padding: 10px; background-color: orange;} </style></head> <body>  <h3>(<strong style="color:blue;">120</strong>) Customers  in the Cash Debt Section </h3><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th></tr><tr><td>1,168,508,250</td><td>1,413,817,250</td><td style='font-weight:bold;color:blue;' >-245,309,000</td></tr></table><br>() <table class="table"><tr><th>Name</th> <th>Cash In</th> <th>Cash Out</th> <th>Cash Balance</th> <th> Mobile </th></tr><tr><td>Abdi Abdullahi</td> <td>64,000</td> <td>113,000</td> <td style='font-weight:bold;color:blue;'>-49,000</td> <td></td><tr><tr><td>Abdi Dhiin</td> <td>0</td> <td>4,000</td> <td style='font-weight:bold;color:blue;'>-4,000</td> <td></td><tr><tr><td>Abdi salam Mohamed</td> <td>130,000</td> <td>140,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Abdifatah Ali Hassan/I. cadde</td> <td>10,000,000</td> <td>10,094,800</td> <td style='font-weight:bold;color:blue;'>-94,800</td> <td></td><tr><tr><td>Abdiqadir Salad</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Abdiqani X. Farah</td> <td>8,106,800</td> <td>8,127,300</td> <td style='font-weight:bold;color:blue;'>-20,500</td> <td></td><tr><tr><td>Abdirashid Hirad</td> <td>1,277,200</td> <td>1,357,700</td> <td style='font-weight:bold;color:blue;'>-80,500</td> <td></td><tr><tr><td>Abdirizak Abshir</td> <td>1,015,000</td> <td>1,020,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Abdirizak Hodan Plaza</td> <td>175,600</td> <td>213,000</td> <td style='font-weight:bold;color:blue;'>-37,400</td> <td></td><tr><tr><td>Abdullahi Y. Ibrahim</td> <td>500,000</td> <td>610,000</td> <td style='font-weight:bold;color:blue;'>-110,000</td> <td></td><tr><tr><td>Adan Ukaash</td> <td>1,825,000</td> <td>3,805,000</td> <td style='font-weight:bold;color:blue;'>-1,980,000</td> <td></td><tr><tr><td>Ahmed Dheere</td> <td>207,000</td> <td>226,000</td> <td style='font-weight:bold;color:blue;'>-19,000</td> <td></td><tr><tr><td>Ahmed Kismayo</td> <td>1,370,000</td> <td>2,971,300</td> <td style='font-weight:bold;color:blue;'>-1,601,300</td> <td></td><tr><tr><td>Ahmed Yemani</td> <td>390,000</td> <td>616,000</td> <td style='font-weight:bold;color:blue;'>-226,000</td> <td></td><tr><tr><td>Ahsa BBK</td> <td>16,858,400</td> <td>16,958,400</td> <td style='font-weight:bold;color:blue;'>-100,000</td> <td></td><tr><tr><td>Ahsa FCB</td> <td>5,173,700</td> <td>5,183,700</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Amino Ali Geele</td> <td>261,000</td> <td>285,000</td> <td style='font-weight:bold;color:blue;'>-24,000</td> <td></td><tr><tr><td>Amino Buraale</td> <td>494,000</td> <td>537,000</td> <td style='font-weight:bold;color:blue;'>-43,000</td> <td></td><tr><tr><td>Amino Cabaas</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Amino X. Ismail</td> <td>31,200</td> <td>33,000</td> <td style='font-weight:bold;color:blue;'>-1,800</td> <td></td><tr><tr><td>Asho Abshir</td> <td>160,000</td> <td>215,000</td> <td style='font-weight:bold;color:blue;'>-55,000</td> <td></td><tr><tr><td>Bashir Adan</td> <td>226,215,300</td> <td>230,546,300</td> <td style='font-weight:bold;color:blue;'>-4,331,000</td> <td></td><tr><tr><td>Bashir Isse Nooh</td> <td>20,731,000</td> <td>20,940,000</td> <td style='font-weight:bold;color:blue;'>-209,000</td> <td></td><tr><tr><td>bibi</td> <td>525,000</td> <td>577,000</td> <td style='font-weight:bold;color:blue;'>-52,000</td> <td></td><tr><tr><td>Billing Account</td> <td>10,486,750</td> <td>10,796,350</td> <td style='font-weight:bold;color:blue;'>-309,600</td> <td></td><tr><tr><td>Bishaaro X Maxamed</td> <td>1,308,000</td> <td>1,399,000</td> <td style='font-weight:bold;color:blue;'>-91,000</td> <td></td><tr><tr><td>Bood Cons 2</td> <td>28,053,550</td> <td>34,053,550</td> <td style='font-weight:bold;color:blue;'>-6,000,000</td> <td></td><tr><tr><td>C/karin Sabriye</td> <td>36,078,500</td> <td>42,578,500</td> <td style='font-weight:bold;color:blue;'>-6,500,000</td> <td></td><tr><tr><td>C/laahi M farah</td> <td>340,000</td> <td>883,500</td> <td style='font-weight:bold;color:blue;'>-543,500</td> <td></td><tr><tr><td>C/laahi Sheikh</td> <td>287,000</td> <td>334,000</td> <td style='font-weight:bold;color:blue;'>-47,000</td> <td></td><tr><tr><td>C/qaadir Biraati</td> <td>3,911,450</td> <td>4,298,100</td> <td style='font-weight:bold;color:blue;'>-386,650</td> <td></td><tr><tr><td>C/qafar Nasar</td> <td>9,118,200</td> <td>10,111,200</td> <td style='font-weight:bold;color:blue;'>-993,000</td> <td></td><tr><tr><td>C/rashid Cafa</td> <td>4,538,200</td> <td>4,648,200</td> <td style='font-weight:bold;color:blue;'>-110,000</td> <td></td><tr><tr><td>C/rashid Colaad</td> <td>4,113,500</td> <td>5,686,900</td> <td style='font-weight:bold;color:blue;'>-1,573,400</td> <td></td><tr><tr><td>C/rashid Xasan Webi 340</td> <td>15,832,800</td> <td>15,862,800</td> <td style='font-weight:bold;color:blue;'>-30,000</td> <td></td><tr><tr><td>C/salaan Yarow</td> <td>0</td> <td>7,000</td> <td style='font-weight:bold;color:blue;'>-7,000</td> <td></td><tr><tr><td>cabdi barkad cali ciise</td> <td>106,000</td> <td>171,000</td> <td style='font-weight:bold;color:blue;'>-65,000</td> <td></td><tr><tr><td>Cali Yare</td> <td>28,200,000</td> <td>38,200,000</td> <td style='font-weight:bold;color:blue;'>-10,000,000</td> <td></td><tr><tr><td>Dahabo Mohamed Diriye</td> <td>1,152,000</td> <td>1,472,000</td> <td style='font-weight:bold;color:blue;'>-320,000</td> <td></td><tr><tr><td>Daud juja hse</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;'>-100,000</td> <td></td><tr><tr><td>Dayib cons last phase completion</td> <td>11,817,250</td> <td>16,417,250</td> <td style='font-weight:bold;color:blue;'>-4,600,000</td> <td></td><tr><tr><td>Fadumo Farah Saleban</td> <td>923,300</td> <td>997,800</td> <td style='font-weight:bold;color:blue;'>-74,500</td> <td></td><tr><tr><td>Fadumo Qambi</td> <td>1,516,000</td> <td>1,913,000</td> <td style='font-weight:bold;color:blue;'>-397,000</td> <td></td><tr><tr><td>Faiza Balile</td> <td>75,100</td> <td>77,100</td> <td style='font-weight:bold;color:blue;'>-2,000</td> <td></td><tr><tr><td>Fartun Xasan Ismail</td> <td>0</td> <td>2,000</td> <td style='font-weight:bold;color:blue;'>-2,000</td> <td></td><tr><tr><td>Farxiyo Yassin</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>five street fahmo garafe</td> <td>4,000,000</td> <td>6,000,000</td> <td style='font-weight:bold;color:blue;'>-2,000,000</td> <td></td><tr><tr><td>five street Xaawo Noor hassan</td> <td>3,783,000</td> <td>6,000,000</td> <td style='font-weight:bold;color:blue;'>-2,217,000</td> <td></td><tr><tr><td>Fowsi Ali Balle</td> <td>175,000</td> <td>1,175,000</td> <td style='font-weight:bold;color:blue;'>-1,000,000</td> <td></td><tr><tr><td>Fowsiyo Musse Cartan</td> <td>28,000</td> <td>66,100</td> <td style='font-weight:bold;color:blue;'>-38,100</td> <td></td><tr><tr><td>Halima Khamis</td> <td>691,300</td> <td>711,300</td> <td style='font-weight:bold;color:blue;'>-20,000</td> <td></td><tr><tr><td>Hani Ahmed</td> <td>0</td> <td>2,000</td> <td style='font-weight:bold;color:blue;'>-2,000</td> <td></td><tr><tr><td>Harun Xansharo</td> <td>1,526,000</td> <td>8,771,400</td> <td style='font-weight:bold;color:blue;'>-7,245,400</td> <td></td><tr><tr><td>Hassan Isaq</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Hibo Musse</td> <td>100,400</td> <td>101,400</td> <td style='font-weight:bold;color:blue;'>-1,000</td> <td></td><tr><tr><td>Hire Jabari</td> <td>0</td> <td>2,000,000</td> <td style='font-weight:bold;color:blue;'>-2,000,000</td> <td></td><tr><tr><td>Homeland/expenses</td> <td>2,811,950</td> <td>3,191,600</td> <td style='font-weight:bold;color:blue;'>-379,650</td> <td></td><tr><tr><td>Hussein Aar</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;'>-3,000</td> <td></td><tr><tr><td>Hussein Bood</td> <td>32,960,000</td> <td>52,960,000</td> <td style='font-weight:bold;color:blue;'>-20,000,000</td> <td></td><tr><tr><td>Ibrahim Cadde</td> <td>22,000,000</td> <td>22,613,000</td> <td style='font-weight:bold;color:blue;'>-613,000</td> <td></td><tr><tr><td>Ismail Omar</td> <td>0</td> <td>12,000</td> <td style='font-weight:bold;color:blue;'>-12,000</td> <td></td><tr><tr><td>Isse Amana</td> <td>3,599,700</td> <td>3,892,400</td> <td style='font-weight:bold;color:blue;'>-292,700</td> <td></td><tr><tr><td>Juja Hse/expenses</td> <td>2,901,600</td> <td>3,438,600</td> <td style='font-weight:bold;color:blue;'>-537,000</td> <td></td><tr><tr><td>Keenadid Ali Jama</td> <td>1,572,500</td> <td>2,247,500</td> <td style='font-weight:bold;color:blue;'>-675,000</td> <td></td><tr><tr><td>M. A. M</td> <td>133,000</td> <td>135,500</td> <td style='font-weight:bold;color:blue;'>-2,500</td> <td></td><tr><tr><td>M/dullo</td> <td>190,874,100</td> <td>192,274,100</td> <td style='font-weight:bold;color:blue;'>-1,400,000</td> <td></td><tr><tr><td>M/Dullo/tempo.</td> <td>300,000</td> <td>633,000</td> <td style='font-weight:bold;color:blue;'>-333,000</td> <td></td><tr><tr><td>Macalin Hussein</td> <td>0</td> <td>130,000</td> <td style='font-weight:bold;color:blue;'>-130,000</td> <td></td><tr><tr><td>Mahad Musse</td> <td>9,865,800</td> <td>12,399,050</td> <td style='font-weight:bold;color:blue;'>-2,533,250</td> <td></td><tr><tr><td>Makkah Ali Mohamed</td> <td>110,000</td> <td>180,000</td> <td style='font-weight:bold;color:blue;'>-70,000</td> <td></td><tr><tr><td>Maryan Garaar</td> <td>100,000</td> <td>150,000</td> <td style='font-weight:bold;color:blue;'>-50,000</td> <td></td><tr><tr><td>Maxamud Cirro</td> <td>203,000</td> <td>233,000</td> <td style='font-weight:bold;color:blue;'>-30,000</td> <td></td><tr><tr><td>Maxsin Suleiman</td> <td>1,120,000</td> <td>1,320,000</td> <td style='font-weight:bold;color:blue;'>-200,000</td> <td></td><tr><tr><td>Maymun Cascasey</td> <td>435,000</td> <td>450,000</td> <td style='font-weight:bold;color:blue;'>-15,000</td> <td></td><tr><tr><td>Mohamed Abdi Gacmo</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Mohamed Jama Blue/Harun</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Mohamed Shire/harun</td> <td>0</td> <td>6,000</td> <td style='font-weight:bold;color:blue;'>-6,000</td> <td></td><tr><tr><td>Mohamud Ali Hassan</td> <td>7,626,050</td> <td>7,670,050</td> <td style='font-weight:bold;color:blue;'>-44,000</td> <td></td><tr><tr><td>Mohamud Isaaq Gabow</td> <td>4,570,000</td> <td>5,370,000</td> <td style='font-weight:bold;color:blue;'>-800,000</td> <td></td><tr><tr><td>Mohamud Kofiyo</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Mumin Khayre</td> <td>0</td> <td>11,000</td> <td style='font-weight:bold;color:blue;'>-11,000</td> <td>0723473455</td><tr><tr><td>Muna Mohamed</td> <td>20,000</td> <td>25,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Mursal X. Osman</td> <td>547,000</td> <td>583,000</td> <td style='font-weight:bold;color:blue;'>-36,000</td> <td></td><tr><tr><td>Musse Sangaley</td> <td>72,500</td> <td>79,500</td> <td style='font-weight:bold;color:blue;'>-7,000</td> <td></td><tr><tr><td>Mustafe C/laahi Omar</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;'>-200,000</td> <td></td><tr><tr><td>Muxubo Tubaako</td> <td>60,000</td> <td>210,000</td> <td style='font-weight:bold;color:blue;'>-150,000</td> <td></td><tr><tr><td>mwangi 2</td> <td>1,704,200</td> <td>1,728,900</td> <td style='font-weight:bold;color:blue;'>-24,700</td> <td></td><tr><tr><td>Nasro Dahir</td> <td>5,000</td> <td>6,500</td> <td style='font-weight:bold;color:blue;'>-1,500</td> <td></td><tr><tr><td>Omar Ciid</td> <td>3,711,000</td> <td>3,721,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Omar Xaaji Hassan</td> <td>500,000</td> <td>4,100,000</td> <td style='font-weight:bold;color:blue;'>-3,600,000</td> <td></td><tr><tr><td>Onkod</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;'>-20,000</td> <td></td><tr><tr><td>Osman Cigge</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Osman Galti</td> <td>0</td> <td>15,000</td> <td style='font-weight:bold;color:blue;'>-15,000</td> <td></td><tr><tr><td>Osman M-pesa</td> <td>120,000</td> <td>130,000</td> <td style='font-weight:bold;color:blue;'>-10,000</td> <td></td><tr><tr><td>Osman Mubarak/GAB</td> <td>0</td> <td>17,000</td> <td style='font-weight:bold;color:blue;'>-17,000</td> <td></td><tr><tr><td>parklands/Ali yare</td> <td>2,233,150</td> <td>2,711,150</td> <td style='font-weight:bold;color:blue;'>-478,000</td> <td></td><tr><tr><td>Qabuul shariif</td> <td>471,000</td> <td>476,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Qasim Xareed</td> <td>3,599,400</td> <td>3,799,400</td> <td style='font-weight:bold;color:blue;'>-200,000</td> <td></td><tr><tr><td>Raymond and Isse</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;'>-500,000</td> <td></td><tr><tr><td>Sadiq farah Abdi</td> <td>25,000</td> <td>222,000</td> <td style='font-weight:bold;color:blue;'>-197,000</td> <td></td><tr><tr><td>Safiyo X. Ismail/Gulf</td> <td>10,850,000</td> <td>14,200,000</td> <td style='font-weight:bold;color:blue;'>-3,350,000</td> <td></td><tr><tr><td>Sahro Salad</td> <td>376,000</td> <td>451,000</td> <td style='font-weight:bold;color:blue;'>-75,000</td> <td></td><tr><tr><td>Sahro Yussuf Ali</td> <td>913,000</td> <td>943,000</td> <td style='font-weight:bold;color:blue;'>-30,000</td> <td></td><tr><tr><td>sahsan construction</td> <td>3,556,650</td> <td>3,702,650</td> <td style='font-weight:bold;color:blue;'>-146,000</td> <td></td><tr><tr><td>Said Cabaas</td> <td>20,000</td> <td>25,000</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Said Farah Abdi</td> <td>256,461,300</td> <td>279,029,700</td> <td style='font-weight:bold;color:blue;'>-22,568,400</td> <td></td><tr><tr><td>Said xaji Musse</td> <td>0</td> <td>8,000</td> <td style='font-weight:bold;color:blue;'>-8,000</td> <td></td><tr><tr><td>Sharif Dawo</td> <td>63,623,400</td> <td>73,823,400</td> <td style='font-weight:bold;color:blue;'>-10,200,000</td> <td></td><tr><tr><td>Shire Seyroon</td> <td>908,800</td> <td>913,800</td> <td style='font-weight:bold;color:blue;'>-5,000</td> <td></td><tr><tr><td>Shirwa Osman Isse</td> <td>0</td> <td>8,000</td> <td style='font-weight:bold;color:blue;'>-8,000</td> <td></td><tr><tr><td>Shugri Madoobe</td> <td>12,498,850</td> <td>12,685,850</td> <td style='font-weight:bold;color:blue;'>-187,000</td> <td></td><tr><tr><td>South C House</td> <td>0</td> <td>112,252,650</td> <td style='font-weight:bold;color:blue;'>-112,252,650</td> <td></td><tr><tr><td>Sureer Jaqalood</td> <td>0</td> <td>275,000</td> <td style='font-weight:bold;color:blue;'>-275,000</td> <td></td><tr><tr><td>Ubah Abdirahman</td> <td>75,000</td> <td>95,000</td> <td style='font-weight:bold;color:blue;'>-20,000</td> <td></td><tr><tr><td>Xareed Xasan</td> <td>0</td> <td>220,000</td> <td style='font-weight:bold;color:blue;'>-220,000</td> <td></td><tr><tr><td>Xassan Xussen/oday</td> <td>260,000</td> <td>390,000</td> <td style='font-weight:bold;color:blue;'>-130,000</td> <td></td><tr><tr><td>Yasmin Biraati</td> <td>412,500</td> <td>441,000</td> <td style='font-weight:bold;color:blue;'>-28,500</td> <td></td><tr><tr><td>Yassin Rwanda</td> <td>7,364,000</td> <td>7,394,000</td> <td style='font-weight:bold;color:blue;'>-30,000</td> <td></td><tr><tr><td>Yussuf C. Shirwac</td> <td>787,400</td> <td>941,000</td> <td style='font-weight:bold;color:blue;'>-153,600</td> <td></td><tr><tr><td>Yussuf Ibrahim</td> <td>52,478,900</td> <td>58,679,000</td> <td style='font-weight:bold;color:blue;'>-6,200,100</td> <td></td><tr></table><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th></tr><tr><td>1,168,508,250</td><td>1,413,817,250</td><td style='font-weight:bold;color:blue;' >-245,309,000</td></tr></table></body><html>

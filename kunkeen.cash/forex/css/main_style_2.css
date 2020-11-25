@@ -1,0 +1,105 @@
+.currency_imput{
+    border-right: none !important;
+}
+
+
+.currency_input{
+    text-align:right;
+    border-right: none !important;
+    width: 75px;
+}
+
+.ui-dialog-titlebar{
+    display: none !important;
+}
+
+
+
+
+ #transacion_form .amount_t .chzn-container {   min-width:75px !important;}
+ #transacion_form .amount_t .chzn-container li { color:black !important; font-weight: normal !important;}
+
+
+
+
+.ui-tabs .ui-tabs-nav li {
+    top: 4px;
+    background: none;
+    border: none;
+    /* color: #fff !important; */
+}
+
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    background: #9641b5 !important;
+    height: 40px;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
+    border-bottom:3px solid #be88d1 !important;
+}
+
+
+.ui-tabs .ui-tabs-nav {
+    height: 49px;
+ 
+}
+
+
+.ui-tabs .ui-tabs-nav li:hover {
+    color:#fff;
+    background: #9641b5 !important;
+    border: none;
+    /* color: #fff !important; */
+}
+
+.ui-tabs .ui-tabs-nav li a {
+    color:#fff;
+ 
+}
+
+
+.customer_names_select .chzn-container-single .chzn-drop{
+        width: 300px !important;
+
+}
+
+
+ 
+
+.chip_1{
+    position: relative;
+    top: 8px;
+    left: 75px;
+}
+
+.chip_1_{
+  
+    left: 75px;
+}
+#error_line{
+     display: inline !important;
+     padding: 0;
+     margin: 0;
+}
+
+
+.error_border{
+
+    border: 2px solid red !important;
+ }
+
+
+.bl_list{ background: none !important; }
+
+
+
+.c_ac_page th{
+    text-align:center;
+    padding:5px !important;
+    font-size: 16px;
+     
+}
+
+
+
+

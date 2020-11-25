@@ -1,0 +1,680 @@
+<?php
+/**
+ * Copyright 2012 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\RequestInterface;
+
+/**
+ * Manage large file uploads, which may be media but can be any type
+ * of sizable data.
+ */
+class Google_Http_MediaFileUpload
+{
+  const UPLOAD_MEDIA_TYPE = 'media';
+  const UPLOAD_MULTIPART_TYPE = 'multipart';
+  const UPLOAD_RESUMABLE_TYPE = 'resumable';
+
+  /** @var string $mimeType */
+  private $mimeType;
+
+  /** @var string $data */
+  private $data;
+
+  /** @var bool $resumable */
+  private $resumable;
+
+  /** @var int $chunkSize */
+  private $chunkSize;
+
+  /** @var int $size */
+  private $size;
+
+  /** @var string $resumeUri */
+  private $resumeUri;
+
+  /** @var int $progress */
+  private $progress;
+
+  /** @var Google_Client */
+  private $client;
+
+  /** @var Psr\Http\Message\RequestInterface */
+  private $request;
+
+  /** @var string */
+  private $boundary;
+
+  /**
+   * Result code from last HTTP call
+   * @var int
+   */
+  private $httpResultCode;
+
+  /**
+   * @param $mimeType string
+   * @param $data string The bytes you want to upload.
+   * @param $resumable bool
+   * @param bool $chunkSize File will be uploaded in chunks of this many bytes.
+   * only used if resumable=True
+   */
+  public function __construct(
+      Google_Client $client,
+      RequestInterface $request,
+      $mimeType,
+      $data,
+      $resumable = false,
+      $chunkSize = false
+  ) {
+    $this->client = $client;
+    $this->request = $request;
+    $this->mimeType = $mimeType;
+    $this->data = $data;
+    $this->resumable = $resumable;
+    $this->chunkSize = $chunkSize;
+    $this->progress = 0;
+
+    $this->process();
+  }
+
+  /**
+   * Set the size of the file that is being uploaded.
+   * @param $size - int file size in bytes
+   */
+  public function setFileSize($size)
+  {
+    $this->size = $size;
+  }
+
+  /**
+   * Return the progress on the upload
+   * @return int progress in bytes uploaded.
+   */
+  public function getProgress()
+  {
+    return $this->progress;
+  }
+
+  /**
+   * Send the next part of the file to upload.
+   * @param [$chunk] the next set of bytes to send. If false will used $data passed
+   * at construct time.
+   */
+  public function nextChunk($chunk = false)
+  {
+    $resumeUri = $this->getResumeUri();
+
+    if (false == $chunk) {
+      $chunk = substr($this->data, $this->progress, $this->chunkSize);
+    }
+
+    $lastBytePos = $this->progress + strlen($chunk) - 1;
+    $headers = array(
+      'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
+      'content-length' => strlen($chunk),
+      'expect' => '',
+    );
+
+    $request = new Request(
+        'PUT',
+        $resumeUri,
+        $headers,
+        Psr7\stream_for($chunk)
+    );
+
+    return $this->makePutRequest($request);
+  }
+
+  /**
+   * Return the HTTP result code from the last call made.
+   * @return int code
+   */
+  public function getHttpResultCode()
+  {
+    return $this->httpResultCode;
+  }
+
+  /**
+  * Sends a PUT-Request to google drive and parses the response,
+  * setting the appropiate variables from the response()
+  *
+  * @param Google_Http_Request $httpRequest the Reuqest which will be send
+  *
+  * @return false|mixed false when the upload is unfinished or the decoded http response
+  *
+  */
+  private function makePutRequest(RequestInterface $request)
+  {
+    $response = $this->client->execute($request);
+    $this->httpResultCode = $response->getStatusCode();
+
+    if (308 == $this->httpResultCode) {
+      // Track the amount uploaded.
+      $range = explode('-', $response->getHeaderLine('range'));
+      $this->progress = $range[1] + 1;
+
+      // Allow for changing upload URLs.
+      $location = $response->getHeaderLine('location');
+      if ($location) {
+        $this->resumeUri = $location;
+      }
+
+      // No problems, but upload not complete.
+      return false;
+    }
+
+    return Google_Http_REST::decodeHttpResponse($response, $this->request);
+  }
+
+  /**
+   * Resume a previously unfinished upload
+   * @param $resumeUri the resume-URI of the unfinished, resumable upload.
+   */
+  public function resume($resumeUri)
+  {
+     $this->resumeUri = $resumeUri;
+     $headers = array(
+       'content-range' => "bytes */$this->size",
+       'content-length' => 0,
+     );
+     $httpRequest = new Request(
+         'PUT',
+         $this->resumeUri,
+         $headers
+     );
+
+     return $this->makePutRequest($httpRequest);
+  }
+
+  /**
+   * @return Psr\Http\Message\RequestInterface $request
+   * @visible for testing
+   */
+  private function process()
+  {
+    $this->transformToUploadUrl();
+    $request = $this->request;
+
+    $postBody = '';
+    $contentType = false;
+
+    $meta = (string) $request->getBody();
+    $meta = is_string($meta) ? json_decode($meta, true) : $meta;
+
+    $uploadType = $this->getUploadType($meta);
+    $request = $request->withUri(
+        Uri::withQueryValue($request->getUri(), 'uploadType', $uploadType)
+    );
+
+    $mimeType = $this->mimeType ?
+        $this->mimeType :
+        $request->getHeaderLine('content-type');
+
+    if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
+      $contentType = $mimeType;
+      $postBody = is_string($meta) ? $meta : json_encode($meta);
+    } else if (self::UPLOAD_MEDIA_TYPE == $uploadType) {
+      $contentType = $mimeType;
+      $postBody = $this->data;
+    } else if (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
+      // This is a multipart/related upload.
+      $boundary = $this->boundary ? $this->boundary : mt_rand();
+      $boundary = str_replace('"', '', $boundary);
+      $contentType = 'multipart/related; boundary=' . $boundary;
+      $related = "--$boundary\r\n";
+      $related .= "Content-Type: application/json; charset=UTF-8\r\n";
+      $related .= "\r\n" . json_encode($meta) . "\r\n";
+      $related .= "--$boundary\r\n";
+      $related .= "Content-Type: $mimeType\r\n";
+      $related .= "Content-Transfer-Encoding: base64\r\n";
+      $related .= "\r\n" . base64_encode($this->data) . "\r\n";
+      $related .= "--$boundary--";
+      $postBody = $related;
+    }
+
+    $request = $request->withBody(Psr7\stream_for($postBody));
+
+    if (isset($contentType) && $contentType) {
+      $request = $request->withHeader('content-type', $contentType);
+    }
+
+    return $this->request = $request;
+  }
+
+  /**
+   * Valid upload types:
+   * - resumable (UPLOAD_RESUMABLE_TYPE)
+   * - media (UPLOAD_MEDIA_TYPE)
+   * - multipart (UPLOAD_MULTIPART_TYPE)
+   * @param $meta
+   * @return string
+   * @visible for testing
+   */
+  public function getUploadType($meta)
+  {
+    if ($this->resumable) {
+      return self::UPLOAD_RESUMABLE_TYPE;
+    }
+
+    if (false == $meta && $this->data) {
+      return self::UPLOAD_MEDIA_TYPE;
+    }
+
+    return self::UPLOAD_MULTIPART_TYPE;
+  }
+
+  public function getResumeUri()
+  {
+    if (is_null($this->resumeUri)) {
+      $this->resumeUri = $this->fetchResumeUri();
+    }
+
+    return $this->resumeUri;
+  }
+
+  private function fetchResumeUri()
+  {
+    $result = null;
+    $body = $this->request->getBody();
+    if ($body) {
+      $headers = array(
+        'content-type' => 'application/json; charset=UTF-8',
+        'content-length' => $body->getSize(),
+        'x-upload-content-type' => $this->mimeType,
+        'x-upload-content-length' => $this->size,
+        'expect' => '',
+      );
+      foreach ($headers as $key => $value) {
+        $this->request = $this->request->withHeader($key, $value);
+      }
+    }
+
+    $response = $this->client->execute($this->request, false);
+    $location = $response->getHeaderLine('location');
+    $code = $response->getStatusCode();
+
+    if (200 == $code && true == $location) {
+      return $location;
+    }
+
+    $message = $code;
+    $body = json_decode((string) $this->request->getBody(), true);
+    if (isset($body['error']['errors'])) {
+      $message .= ': ';
+      foreach ($body['error']['errors'] as $error) {
+        $message .= "{$error[domain]}, {$error[message]};";
+      }
+      $message = rtrim($message, ';');
+    }
+
+    $error = "Failed to start the resumable upload (HTTP {$message})";
+    $this->client->getLogger()->error($error);
+
+    throw new Google_Exception($error);
+  }
+
+  private function transformToUploadUrl()
+  {
+    $parts = parse_url((string) $this->request->getUri());
+    if (!isset($parts['path'])) {
+      $parts['path'] = '';
+    }
+    $parts['path'] = '/upload' . $parts['path'];
+    $uri = Uri::fromParts($parts);
+    $this->request = $this->request->withUri($uri);
+  }
+
+  public function setChunkSize($chunkSize)
+  {
+    $this->chunkSize = $chunkSize;
+  }
+
+  public function getRequest()
+  {
+    return $this->request;
+  }
+}
+tals  td ,div#totals2  td{
+  background:#FFFFFF;
+}
+div#totals  th ,div#totals2  th{
+  width:165px;
+}
+
+
+
+#page-wrap {
+	position: relative;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+}
+
+
+#add_div, #change_delete_pass, #edit_div ,#new_exp_div2, #worning_to_delete_exp, #new_exp_div,#edit_exp_div, #worning_to_delete,#error_del, #change_username, #change_pass,#feedback, #Deleted,#feedback_log, #feedback_3{
+
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#61FD0A; 
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+ 
+
+
+#blance_sidbar{
+position: absolute;
+text-align:left;
+left: 577;
+top: 22;
+width:580px;
+	
+	padding:10px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:10px 10px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+	height:600px;   /* 600px */
+	overflow-x:auto;
+}
+#blance_sidbar pre{
+box-shadow: 5px 5px 15px rgba(148, 26, 99, 0.41); /*zero*/
+	border-radius:7px;
+	margin:4px;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	padding:4px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+
+}
+
+
+#blance_sidbar span{
+color:red;
+}
+
+
+
+ #castomer_details, #castomer_details2{
+ 
+ }
+
+
+#main_details_bage{
+	margin:10px;
+	padding:20px;
+	
+
+}
+
+ul#main-nav {
+	margin-left: 20px;
+}
+ul#main-nav li {
+	float: left;
+	position: relative;
+	margin-left: -20px;
+	display: inline;
+}
+ul#main-nav li a {
+	position: relative;
+	width: 110px;
+	height: 29px;
+	display: block;
+	background-image: url('../images/tabs.png');
+	background-position: center center;
+	color: #44403b;
+	text-decoration: none;
+	font-size: 14px;
+	padding-top: 12px;
+	text-align: left;
+	padding-left: 30px;
+	font-weight: bold;
+}
+ul#main-nav li.home a {
+	background-image: url('../images/tab-home.png');
+}
+ul#main-nav li.current a {
+	background-position: top;
+	color: #ffffff;
+}
+ul#main-nav li a:hover {
+	background-position: bottom;
+	color: #ffffff;
+}
+ul#main-nav li.current a:hover {
+	background-position: top; /*To Prevent the Current tab from changing colour on hover*/
+	color: #ffffff;
+}
+ul#main-nav li.current {
+	z-index: 100;
+}
+ul#main-nav li.home {
+	z-index: 100;
+}
+ul#main-nav li.portfolio {
+	z-index: 99;
+}
+ul#main-nav li.services {
+	z-index: 98;
+}
+ul#main-nav li.about {
+	z-index: 97;
+}
+ul#main-nav li.contact {
+	z-index: 96;
+}
+#image {
+	position: relative;
+	float: left;
+	margin-left: 40px;
+	margin-top: 25px;
+}
+#container {
+
+	position: relative;
+	background-color: #577295;
+	background-image: url('../images/featured-border.jpg');
+	background-repeat: repeat-y;
+	background-position: left;
+ 
+	padding:10px;
+	min-height:669px;
+	 
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px;
+ 
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+
+
+
+#searchbox
+{
+	background: #eaf8fc;
+	background-image: -moz-linear-gradient(#fff, #d4e8ec);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));
+	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c4d9df #a4c3ca #83afb7;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin:30px;
+	overflow: hidden; /* Clear floats */
+}
+
+
+
+
+
+#search, #search_button
+{
+	
+}
+
+#search
+{
+	padding: 5px 9px;
+	height: 35px;
+	width: 380px;
+	border: 1px solid #a4c3ca;
+	font: normal 13px 'trebuchet MS', arial, helvetica;
+
+	background: #f1f1f1;
+	
+	-moz-border-radius: 50px 3px 3px 50px;
+	 border-radius: 50px 3px 3px 50px;
+	 -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+/* ----------------------- */
+
+#search_button
+{		
+	background: #6cbb6b;
+	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7eba7c #578e57 #447d43;
+	
+	 -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 10px;
+        padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #23441e;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#search_button:hover
+{		
+	background: #95d788;
+	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+}	
+
+#search_button:active
+{		
+	background: #95d788;
+	outline: none;
+   
+	 -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#search_button::-moz-focus-inner
+{
+       border: 0;  /* Small centering fix for Firefox */
+}		
+
+
+
+
+
+
+
+.input{
+	font:bold 16px verdana;
+	padding:5px; 
+	border:1px solid #b9bdc1;
+	width:200px;
+	color:#505050;
+}
+.input:focus{
+	background-color:white;
+	border:1px solid #f6bdd3;
+}
+
+.hover{
+color:#fff;
+cursor: pointer;
+
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+}
+
+.feedback {
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+.remove_default_table_style{
+ 
+} body{ padding: 10px; background-color: orange;} </style></head> <body> <h3 style="margin-left:14%;">Account For <strong style="color:blue;">A</strong>bdi Abdullahi <span class="subMobile"></span> </h3><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th> <th>Total Dollar In </th> <th>Total Dollar Out</th> <th> Total Dollar Balance</th></tr><tr><td>503,505</td><td>438,505</td><td style='font-weight:bold;color:blue;' >65,000</td><td>$45,000</td><td>$46,599</td><td style='font-weight:bold;color:blue;'>$-1,599</td></tr></table><br>() <table class="table"><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>4,000</td> <td style='font-weight:bold;color:blue;' >-28,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>01/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-9,595</b></td> <td></td> <td>01/Jul/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-38,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>02/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-10,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-113,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,000</b></td> <td></td> <td>04/Feb/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>120,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-30,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td>to kakamega</td> <td>04/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>04/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >25,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>04/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>12,000</td> <td style='font-weight:bold;color:blue;' >-12,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Kiro</td> <td>05/Jul/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >-80,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>05/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-48,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>06/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>12,000</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-135,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-6,000</b></td> <td></td> <td>06/May/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-68,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>07/Jan/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>2,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,000</b></td> <td></td> <td>07/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,900</b></td> <td></td> <td>07/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>07/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>46,500</td> <td style='font-weight:bold;color:blue;' >-146,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>07/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-73,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>08/Jan/2017</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>900</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,000</b></td> <td></td> <td>08/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>13,005</td> <td style='font-weight:bold;color:blue;' >-159,505</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>08/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>15,000</td> <td style='font-weight:bold;color:blue;' >-150,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-6,000</b></td> <td></td> <td>08/May/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >65,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>08/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>12,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>4,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Sep/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>159,505</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,595</b></td> <td>$<b style='font-weight:bold;color:blue;' >-8,595</b></td> <td></td> <td>10/Jun/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-113,000</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,100</b></td> <td></td> <td>11/Feb/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-53,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>12/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >950</b></td> <td></td> <td>12/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >405</b></td> <td></td> <td>12/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>12,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,405</b></td> <td>kakamega</td> <td>13/Aug/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-78,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>13/Jan/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>20,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >85,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>13/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>350</b></td> <td>$<b style='font-weight:bold;color:blue;' >600</b></td> <td></td> <td>14/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-53,000</td> <td>$<b>0</b></td><td>$<b>20,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td>to cafa</td> <td>15/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-52,000</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >550</b></td> <td></td> <td>15/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >82,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>15/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>17,000</td> <td style='font-weight:bold;color:blue;' >65,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>16/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>2,000</td> <td style='font-weight:bold;color:blue;' >-115,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,100</b></td> <td>Taxi</td> <td>17/Feb/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-83,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>18/Jan/2017</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdi Abdullahi</td> <td>52,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >550</b></td> <td>paid by said A/C</td> <td>18/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >-13,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>18/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-95</b></td> <td></td> <td>18/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>150</b></td> <td>$<b style='font-weight:bold;color:blue;' >400</b></td> <td></td> <td>20/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>0</b></td><td>$<b>204</b></td> <td>$<b style='font-weight:bold;color:blue;' >-299</b></td> <td></td> <td>20/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-12,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >4,000</b></td> <td>Canshuur</td> <td>22/Aug/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-58,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <td>22/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >350</b></td> <td></td> <td>23/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-13,000</td> <td>$<b>20,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>23/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>0</b></td><td>$<b>300</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>23/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-12,000</td> <td>$<b>11,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >11,000</b></td> <td></td> <td>24/Jul/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>1,000</td> <td style='font-weight:bold;color:blue;' >-14,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>24/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-25,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>24/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-115,000</td> <td>$<b>0</b></td><td>$<b>900</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,000</b></td> <td></td> <td>25/Feb/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>15,000</td> <td style='font-weight:bold;color:blue;' >-98,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>25/Jan/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >75,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>25/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >65,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>25/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >75,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>25/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-125,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,000</b></td> <td></td> <td>26/Feb/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >300</b></td> <td></td> <td>26/Jun/2016</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-14,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>26/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-125,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-6,000</b></td> <td></td> <td>27/Apr/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >405</b></td> <td></td> <td>27/Aug/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-58,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>27/Dec/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>300</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>27/Jun/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >45,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>27/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-108,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>28/Jan/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-12,000</td> <td>$<b>0</b></td><td>$<b>6,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,000</b></td> <td></td> <td>28/Jul/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-10,595</b></td> <td></td> <td>28/Jul/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-125,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>28/Mar/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-150,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,000</b></td> <td></td> <td>28/May/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-19,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>28/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >35,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-599</b></td> <td></td> <td>29/Sep/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-24,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,000</b></td> <td></td> <td>30/Nov/2016</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >65,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,599</b></td> <td></td> <td>30/Oct/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-108,000</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,000</b></td> <td></td> <td>31/Jan/2017</td> <tr><tr> <td>Abdi Abdullahi</td> <td>0</td> <td>35,000</td> <td style='font-weight:bold;color:blue;' >-35,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>31/May/2016</td> <tr></table><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th> <th>Total Dollar In </th> <th>Total Dollar Out</th> <th> Total Dollar Balance</th></tr><tr><td>503,505</td><td>438,505</td><td style='font-weight:bold;color:blue;' >65,000</td><td>$45,000</td><td>$46,599</td><td style='font-weight:bold;color:blue;'>$-1,599</td></tr></table></body><html>

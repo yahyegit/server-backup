@@ -1,0 +1,16 @@
+// all input text fieds should not have any borders 
+
+
+.error_line{
+	display:hidden;
+	border-bottom:1px solid red
+	color:red;
+
+} 
+
+
+
+.debt_color{
+	color:#bb60d6;
+	font-weight:bold;
+}

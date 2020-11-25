@@ -1,0 +1,823 @@
+<html><head> <style>  
+    @import url('select.css');
+*{
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+
+
+body{
+
+	font-family:Arial;
+	font-size:12px;
+	color:#303030;
+ 
+}
+
+label{
+	display:inline-block;
+	font-weight:bold;
+	text-align:right;
+	line-height:25px;
+	font-size:16px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+
+ 
+ 
+/*table design */
+
+.table {
+	
+  background: white;
+  border-radius:31px;
+  border-collapse:collapse;
+ 
+  margin: auto;
+  
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+  display: table; 
+  padding: 31px;  
+ 
+}
+
+
+.table th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: bold;
+  padding:16px;
+  
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table th:first-child {
+  border-top-left-radius:3px;
+}
+
+.table th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+.table tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+
+.table tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;
+}
+ 
+.table tr:first-child {
+  border-top:none;
+}
+
+.table tr:last-child {
+  border-bottom:none;
+}
+ 
+.table tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+.table tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+ 
+.table td {
+  background:#FFFFFF;
+  padding:15px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:16px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.table td:last-child {
+  border-right: 0px;
+}
+
+/* end of table design */
+
+ 
+ 
+
+
+
+
+
+
+
+
+img{
+	border:none;
+}
+h2{ /*Dark gray titles*/
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h3{ /*For titles*/
+	margin-bottom:15px;
+	font-size:22px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+h4{
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+h5{ /*address prompt*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h6{ /*address in shipping info*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+
+
+.dates{
+	color:#CC6600;
+	font-weight:bold;
+}
+.offers{
+	color:#404040;
+	font-weight:bold;
+}
+.usernames{
+	color:#006699;
+	font-weight:900;
+}
+.subtitles{
+	color:#707070;
+}
+#wrapper{
+	 
+	margin:15px auto;
+	padding:10px;
+
+	}
+
+
+
+
+.button {
+	-moz-box-shadow: 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+	box-shadow: 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:2px 10px;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+.buttons
+{
+	display: inline-block;
+	white-space: nowrap;
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+	background-image: -webkit-linear-gradient(top, #eee, #ccc);
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -ms-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+	border: 1px solid #777;
+	padding: 0 1.5em;
+	margin: 0.1em;
+	font: bold 1em/2em Arial, Helvetica;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	-moz-border-radius: .2em;
+	-webkit-border-radius: .2em;
+	border-radius: .2em;
+	-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.buttons:hover
+{
+	background-color: #ddd;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+	background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+	background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+	background-image: -o-linear-gradient(top, #fafafa, #ddd);
+	background-image: linear-gradient(top, #fafafa, #ddd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+}
+
+.buttons:active
+{
+	-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	position: relative;
+	top: 1px;
+}
+
+.buttons:focus
+{
+	outline: 0;
+	background: #fafafa;
+}
+
+.buttons:before
+{
+	background: #ccc;
+	background: rgba(0,0,0,.1);
+	float: left;
+	width: 1em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 1em 0 -1em;
+	padding: 0 .2em;
+	-moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-moz-border-radius: .15em 0 0 .15em;
+	-webkit-border-radius: .15em 0 0 .15em;
+	border-radius: .15em 0 0 .15em;
+        pointer-events: none;
+}
+
+/* Hexadecimal entities for the icons */
+
+.add:before
+{
+	content: "\271A";
+}
+
+.edit:before
+{
+	content: "\270E";
+}
+
+.delete:before
+{
+	content: "\2718";
+}
+
+.save:before
+{
+	content: "\2714";
+}
+
+.email:before
+{
+	content: "\2709";
+}
+
+.like:before
+{
+	content: "\2764";
+}
+
+.next:before
+{
+	content: "\279C";
+}
+
+.star:before
+{
+	content: "\2605";
+}
+
+.spark:before
+{
+	content: "\2737";
+}
+
+.play:before
+{
+	content: "\25B6";
+}
+
+
+
+
+
+
+
+
+
+body {
+	background-color: #f0f0f0;
+	font-family: helvetica, "Times New Roman", Times, serif;
+}
+
+h3 {
+ margin: 5px; /* vertical-align: middle; */ 
+ /* text-align: left; */ border-bottom: 2px solid blue; 
+ width: auto; 
+ /* margin-left: 15%; */ 
+}
+
+a:focus {
+	outline: none;
+}
+.clear {
+	clear: both;
+}
+
+.error{
+	border-radius:1em;
+	color:red;
+	background-color:#000;
+	padding:10px;
+	margin:10px;
+	font-family:Arial;
+	font-weight:bold;
+	text-shadow:1px 1px 3px #080808;
+}
+
+
+.date_manual{    
+
+width: 178px !important;
+
+}
+
+#settings_bage{
+padding:10px;
+}
+#logout{
+float:right;
+}
+#hr,#hr2{
+margin:3px;
+
+box-shadow: 3px 0px 8px #FC05DC;
+}
+ 
+ #hover_div{
+ position:absolute;
+ display:none;
+ padding:5px;
+ background:#ccc;
+ color:blue;
+ font-style:italic;
+ font-size:11px;
+ border-radius:2em;
+  border-bottom-left-radius:0em;
+ }
+ 
+
+#settings_bage a{
+float:right;
+}
+#settings_bage p{
+	padding:4px;
+	display:block;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	width:700px;
+}
+#totals pre, #totals2 pre{
+		-moz-box-shadow: 0px 1px 0px 0px #fed897;
+		-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+		box-shadow: 0px 1px 0px 0px #fed897;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+		 
+		border-radius:5px;
+		color:#ffffff;
+		font-family:arial;
+		font-size:14px;
+		font-weight:bold;
+		padding:5px;
+		 
+		display:inline-block;
+}
+
+
+
+#totals div, #totals2 div{
+	width:auto; 
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    display:inline-block;
+}
+
+
+#totals strong, #totals2 strong{
+	/* width:700px !important; */
+  background: #FFFFFF;
+    padding: 15px;
+    padding-left:0;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 16px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+div#totals  .table tr:hover td ,div#totals2  .table tr:hover td,div#totals  td ,div#totals2  td{
+  background:#FFFFFF;
+}
+div#totals  th ,div#totals2  th{
+  width:165px;
+}
+
+
+
+#page-wrap {
+	position: relative;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+}
+
+
+#add_div, #change_delete_pass, #edit_div ,#new_exp_div2, #worning_to_delete_exp, #new_exp_div,#edit_exp_div, #worning_to_delete,#error_del, #change_username, #change_pass,#feedback, #Deleted,#feedback_log, #feedback_3{
+
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#61FD0A; 
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+ 
+
+
+#blance_sidbar{
+position: absolute;
+text-align:left;
+left: 577;
+top: 22;
+width:580px;
+	
+	padding:10px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:10px 10px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+	height:600px;   /* 600px */
+	overflow-x:auto;
+}
+#blance_sidbar pre{
+box-shadow: 5px 5px 15px rgba(148, 26, 99, 0.41); /*zero*/
+	border-radius:7px;
+	margin:4px;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	padding:4px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+
+}
+
+
+#blance_sidbar span{
+color:red;
+}
+
+
+
+ #castomer_details, #castomer_details2{
+ 
+ }
+
+
+#main_details_bage{
+	margin:10px;
+	padding:20px;
+	
+
+}
+
+ul#main-nav {
+	margin-left: 20px;
+}
+ul#main-nav li {
+	float: left;
+	position: relative;
+	margin-left: -20px;
+	display: inline;
+}
+ul#main-nav li a {
+	position: relative;
+	width: 110px;
+	height: 29px;
+	display: block;
+	background-image: url('../images/tabs.png');
+	background-position: center center;
+	color: #44403b;
+	text-decoration: none;
+	font-size: 14px;
+	padding-top: 12px;
+	text-align: left;
+	padding-left: 30px;
+	font-weight: bold;
+}
+ul#main-nav li.home a {
+	background-image: url('../images/tab-home.png');
+}
+ul#main-nav li.current a {
+	background-position: top;
+	color: #ffffff;
+}
+ul#main-nav li a:hover {
+	background-position: bottom;
+	color: #ffffff;
+}
+ul#main-nav li.current a:hover {
+	background-position: top; /*To Prevent the Current tab from changing colour on hover*/
+	color: #ffffff;
+}
+ul#main-nav li.current {
+	z-index: 100;
+}
+ul#main-nav li.home {
+	z-index: 100;
+}
+ul#main-nav li.portfolio {
+	z-index: 99;
+}
+ul#main-nav li.services {
+	z-index: 98;
+}
+ul#main-nav li.about {
+	z-index: 97;
+}
+ul#main-nav li.contact {
+	z-index: 96;
+}
+#image {
+	position: relative;
+	float: left;
+	margin-left: 40px;
+	margin-top: 25px;
+}
+#container {
+
+	position: relative;
+	background-color: #577295;
+	background-image: url('../images/featured-border.jpg');
+	background-repeat: repeat-y;
+	background-position: left;
+ 
+	padding:10px;
+	min-height:669px;
+	 
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px;
+ 
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+
+
+
+#searchbox
+{
+	background: #eaf8fc;
+	background-image: -moz-linear-gradient(#fff, #d4e8ec);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));
+	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c4d9df #a4c3ca #83afb7;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin:30px;
+	overflow: hidden; /* Clear floats */
+}
+
+
+
+
+
+#search, #search_button
+{
+	
+}
+
+#search
+{
+	padding: 5px 9px;
+	height: 35px;
+	width: 380px;
+	border: 1px solid #a4c3ca;
+	font: normal 13px 'trebuchet MS', arial, helvetica;
+
+	background: #f1f1f1;
+	
+	-moz-border-radius: 50px 3px 3px 50px;
+	 border-radius: 50px 3px 3px 50px;
+	 -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+/* ----------------------- */
+
+#search_button
+{		
+	background: #6cbb6b;
+	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7eba7c #578e57 #447d43;
+	
+	 -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 10px;
+        padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #23441e;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#search_button:hover
+{		
+	background: #95d788;
+	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+}	
+
+#search_button:active
+{		
+	background: #95d788;
+	outline: none;
+   
+	 -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#search_button::-moz-focus-inner
+{
+       border: 0;  /* Small centering fix for Firefox */
+}		
+
+
+
+
+
+
+
+.input{
+	font:bold 16px verdana;
+	padding:5px; 
+	border:1px solid #b9bdc1;
+	width:200px;
+	color:#505050;
+}
+.input:focus{
+	background-color:white;
+	border:1px solid #f6bdd3;
+}
+
+.hover{
+color:#fff;
+cursor: pointer;
+
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+}
+
+.feedback {
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+.remove_default_table_style{
+ 
+} body{ padding: 10px; background-color: orange;} </style></head> <body> <center color='#ffffff'> <h3 style='width: 477px; /* margin-left:-53%; */ border-bottom: 2px solid blue;padding: 7px;/* padding-left: 0px; *//* margin-top: 72px; */ '>Reports for (<span style=color:blue;'>Dec</span>/2018)</h3> </center><br>  <h3 style='margin-left: 0px; border-bottom:2px solid blue; width:83%; '><span style='color:blue; '>O</span>Pen Cash:</h3>  <table class='table' style='width: 83%;margin-left: 0;'><tr><th>Open Cash: </th> <td><span style='color:red;'>32,981,000</span></td>  </tr> </table><h3 style='width: auto; /* margin-left:-53%; */ border-bottom: 2px solid blue;padding: 7px;/* padding-left: 0px; *//* margin-top: 72px; */margin-left: 0;'><span style=color:blue;'>T</span>ransactions:</h3> <table class='table'><tbody> <tr> <th>Total Cash In: </th><td><span style='color:red;'>127,627,733</span>   </td><th>Total Cash Out :</th><td> <span style='color:red;'>143,929,673</span>  </td><th> Total Cash Balance : </th><td><span style='color:red;'>-16,301,940</span>   </td> </tr> <tr> <th> Total Dollar In: </th><td> $<span style='color:red;'>1,059,893</span>  </td><th> Total Dollar Out :</th> <td>$<span style='color:red;'>1,114,424</span> </td> <th> Total Dollar Balance : </th> <td>$<span style='color:red;'>-54,531</span> </td></tr>  </tbody> </table> <h3 style='width: auto; /* margin-left:-53%; */ border-bottom: 2px solid blue;padding: 7px;/* padding-left: 0px; *//* margin-top: 72px; */margin-left: 0;'><span style=color:blue;'>|</span></h3> 
+		<table class='table' style='width:90%;margin-left:0px;'><tbody> 
+		<tr> <th style='width: 280px;'>Your Current Total Cash Balance is :</th><td><span style='color:red;'>11,045,752.60</span> </td> <th  style='width: 213px;'>Number of Transactions is :</th><td ><span style='color:#000;'>(<b style='color:blue;'>456</b>)</span></td></tr> <br><br>() <table class="table"><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Adizone Tower / Abdirahman M Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>8,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >38,000</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ali Yare</td> <td>5,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Unix Deposit</td> <td>01/Dec/2018</td> <tr><tr> <td>Mohamed M-pesa</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >670,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ali Yare</td> <td>800,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,800,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Dilaal</td> <td>01/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-500,000</td> <td>$<b>7,800</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,800</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Five star</td> <td>1,172,400</td> <td>0</td> <td style='font-weight:bold;color:blue;' >23,526,490</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Hurlingham</td> <td>01/Dec/2018</td> <tr><tr> <td>Abdinasir Warsame</td> <td>115,400</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,714,750</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Abdirizak Ahmed / amal</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >300,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>C/qafar Nasar</td> <td>29,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >3,690,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Badar Hardware</td> <td>928,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >11,241,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>novel paints Khalif</td> <td>87,696</td> <td>0</td> <td style='font-weight:bold;color:blue;' >87,696</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Brand Limited</td> <td>580,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,614,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>1,409,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,155,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>01/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>690,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,845,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Ramla</td> <td>01/Dec/2018</td> <tr><tr> <td>Electrical Mat./Mwangi</td> <td>75,270</td> <td>0</td> <td style='font-weight:bold;color:blue;' >720,019</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ramla Tower / Safiyo Osman Guled D3</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Jama M-pesa</td> <td>419,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >487,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ahmed Deeq M-pesa</td> <td>2,130,400</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,130,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Mohamed A Cartan</td> <td>5,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >18,056,920</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-52,000</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Sahra Mohamed</td> <td>500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >9,250,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Ushirika Tower Expenses</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Stima</td> <td>01/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-18,734,500</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-16,206</b></td> <td>qaaraan/ wiil zambia</td> <td>01/Dec/2018</td> <tr><tr> <td>Juja Hse/expenses</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Stima</td> <td>01/Dec/2018</td> <tr><tr> <td>Samatar Tower / expenses</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Stima</td> <td>01/Dec/2018</td> <tr><tr> <td>Khadro Waaweyne</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >-80,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,000</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Malyun Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>5,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >4,000</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Homeland / expenses</td> <td>0</td> <td>56,000</td> <td style='font-weight:bold;color:blue;' >-56,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Stima</td> <td>01/Dec/2018</td> <tr><tr> <td>Xaawo Jibril</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>2,173</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,527</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >5,745,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Bill</td> <td>01/Dec/2018</td> <tr><tr> <td>Mohamed A Cartan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >18,056,920</td> <td>$<b>0</b></td><td>$<b>40,080</b></td> <td>$<b style='font-weight:bold;color:blue;' >-92,080</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>City Park Tower</td> <td>0</td> <td>1,000,000</td> <td style='font-weight:bold;color:blue;' >-103,518,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Dulaal/Ali Yare</td> <td>01/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;' >-1,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,800</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>5,000,000</td> <td style='font-weight:bold;color:blue;' >-372,145,760</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Unix Deposit for Wordrobes</td> <td>01/Dec/2018</td> <tr><tr> <td>Khalif  Tower</td> <td>0</td> <td>695,270</td> <td style='font-weight:bold;color:blue;' >-288,605,743</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>300,000</td> <td style='font-weight:bold;color:blue;' >-372,445,760</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>CIF</td> <td>01/Dec/2018</td> <tr><tr> <td>Gitau Hurlingham</td> <td>0</td> <td>820,000</td> <td style='font-weight:bold;color:blue;' >2,664,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>5,953,400</td> <td style='font-weight:bold;color:blue;' >-378,399,160</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Wood Floor</td> <td>01/Dec/2018</td> <tr><tr> <td>Alfred Adizone</td> <td>0</td> <td>1,421,300</td> <td style='font-weight:bold;color:blue;' >-24,887,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ramla Tower</td> <td>0</td> <td>2,095,500</td> <td style='font-weight:bold;color:blue;' >-180,228,939</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>2,572,320</td> <td style='font-weight:bold;color:blue;' >-380,971,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Adizone tower</td> <td>0</td> <td>2,851,445</td> <td style='font-weight:bold;color:blue;' >-148,782,101</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >60,000</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr> <td>Onyango/wardrobe</td> <td>0</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >400,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>City Park Tower</td> <td>0</td> <td>260,000</td> <td style='font-weight:bold;color:blue;' >-103,778,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr> <td>Gitau Ramla</td> <td>0</td> <td>120,000</td> <td style='font-weight:bold;color:blue;' >-7,883,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Mwangi Timber</td> <td>0</td> <td>210,000</td> <td style='font-weight:bold;color:blue;' >437,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Khalif Stima</td> <td>0</td> <td>277,300</td> <td style='font-weight:bold;color:blue;' >4,316,725</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti/Materials</td> <td>01/Dec/2018</td> <tr><tr> <td>Zeitun Tower</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-61,550,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>01/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >2,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Ali Yare</td> <td>0</td> <td>250,000</td> <td style='font-weight:bold;color:blue;' >5,550,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Sahro M Abdullahi</td> <td>0</td> <td>12,000</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >8,600,500</td> <td>$<b>0</b></td><td>$<b>20,060</b></td> <td>$<b style='font-weight:bold;color:blue;' >55,062</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>247,000</td> <td style='font-weight:bold;color:blue;' >5,498,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>01/Dec/2018</td> <tr><tr> <td>Maryan Dahabley</td> <td>8,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>01/Dec/2018</td> <tr><tr> <td>Macawisle</td> <td>340,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,040,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-1,992,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>G 2 Samatar</td> <td>02/Dec/2018</td> <tr><tr> <td>Osman Bireh</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >215,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>homeland</td> <td>02/Dec/2018</td> <tr><tr> <td>Deeqo Dhuubow</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Halima Khamis</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >305,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,000</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Xaawo Xuseen</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >200,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Fadumo Ahmed Gulled</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >55,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Adow/Yussuf</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >248,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Halima Warsame/Y. Ibrahim</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Farah Abshir / Kirro</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >835,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Fadumo Iman Abdi/F. Yassin</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >269,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Fahmo Karaafe/kiro</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-217,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>George Homeland/BBK</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >781,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Sacdiyo Dhuubow</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >250,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Mama Saynab</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >110,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>1,500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >10,100,500</td> <td>$<b>6,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >61,062</b></td> <td>Abdalla</td> <td>02/Dec/2018</td> <tr><tr> <td>Services account</td> <td>298,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,107,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Homeland</td> <td>02/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>2,100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >12,200,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >61,062</b></td> <td>Shuriye</td> <td>02/Dec/2018</td> <tr><tr> <td>Said Farah/Kirro</td> <td>160,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,187,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Parklands</td> <td>02/Dec/2018</td> <tr><tr> <td>masuul macawisle parkland</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >480,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Sharif Raage parklands</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >320,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Farah Abshir / Kirro</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >915,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>0</td> <td>1,438,000</td> <td style='font-weight:bold;color:blue;' >-3,430,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Homeland</td> <td>02/Dec/2018</td> <tr><tr> <td>Services account</td> <td>105,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,212,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Parklands</td> <td>02/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-18,734,500</td> <td>$<b>0</b></td><td>$<b>816</b></td> <td>$<b style='font-weight:bold;color:blue;' >-17,022</b></td> <td>EVC</td> <td>02/Dec/2018</td> <tr><tr> <td>Ismail M. Macalin</td> <td>0</td> <td>1,500</td> <td style='font-weight:bold;color:blue;' >-1,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >150</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Sadiq farah Abdi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-2,345,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td>Taj Comm.</td> <td>02/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Jama M-pesa</td> <td>0</td> <td>419,000</td> <td style='font-weight:bold;color:blue;' >68,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Mohamed Ali Norway</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Osman Fandhe</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-1,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-1,000,000</td> <td>$<b>2,200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>190,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-3,905,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>mahad musse</td> <td>03/Dec/2018</td> <tr><tr> <td>Mohamed Ali Madobe</td> <td>0</td> <td>7,000</td> <td style='font-weight:bold;color:blue;' >73,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>24,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-3,881,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Mursal X Osman/6 Months</td> <td>03/Dec/2018</td> <tr><tr> <td>Mahad Musse</td> <td>0</td> <td>190,000</td> <td style='font-weight:bold;color:blue;' >-361,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>2 Months/Parklands</td> <td>03/Dec/2018</td> <tr><tr> <td>Muxubo Ismail Nooh</td> <td>90,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >90,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>2,000,000</td> <td style='font-weight:bold;color:blue;' >-3,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Ahsa FCB</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-50</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Ushirika Tower Expenses</td> <td>0</td> <td>85,000</td> <td style='font-weight:bold;color:blue;' >-185,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>03/Dec/2018</td> <tr><tr> <td>Juja Hse/expenses</td> <td>0</td> <td>49,000</td> <td style='font-weight:bold;color:blue;' >-109,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>03/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,000</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >200</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>fadumo said jama</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >550,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >11,750</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Samatar Tower / expenses</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >-110,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>03/Dec/2018</td> <tr><tr> <td>Osman Fandhe</td> <td>560,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-440,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Siraad Adan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,300</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Homeland / expenses</td> <td>0</td> <td>78,000</td> <td style='font-weight:bold;color:blue;' >-134,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>03/Dec/2018</td> <tr><tr> <td>Abdifatah Cagmadhige</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >24,280</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Ahsa FCB</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >-100</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Nimco Yassin Aw Muse</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >400</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Billing Account</td> <td>0</td> <td>13,000</td> <td style='font-weight:bold;color:blue;' >-6,696,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Kirro Duka</td> <td>03/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >-381,171,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sh Abukar</td> <td>03/Dec/2018</td> <tr><tr> <td>Ahmed Deeq M-pesa</td> <td>0</td> <td>1,500,000</td> <td style='font-weight:bold;color:blue;' >630,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Aato</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,046,300</td> <td>$<b>0</b></td><td>$<b>40,200</b></td> <td>$<b style='font-weight:bold;color:blue;' >-40,200</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>500</td> <td style='font-weight:bold;color:blue;' >1,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >200</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;' >4,998,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>03/Dec/2018</td> <tr><tr> <td>Farah Gym</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >93,890</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Farah Salary/ikran</td> <td>03/Dec/2018</td> <tr><tr> <td>Adizone Tower/ Ahmed M Abdullahi</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>03/Dec/2018</td> <tr><tr> <td>C/fatax Ground floor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >43,970</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Mohamud khalif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>50,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >59,500</b></td> <td>Refund</td> <td>01/Dec/2018</td> <tr><tr> <td>Mohamud Tamu</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>110,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Profit frm Samatar</td> <td>08/Dec/2018</td> <tr><tr> <td>Fowsiyo Jamal /D 4</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >240,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mama Fartun N Guhaad</td> <td>7,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >7,000</td> <td>$<b>1,650</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,650</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Amino Dhunyale</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >84,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Hass Company</td> <td>105,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >105,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Anab Jama Mire</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Xaawo M  Wali</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >56,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Takar Dahir</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >525,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdihakin Ciise</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Halima Abdiaziz</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Fowsi Ali Balle</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-150,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Deeqo Australia</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >314,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed Adan Kirro</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Khalif Kunnow/ corner hse</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Hassan Abshir</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >575,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Khadijo Xaaji Adan</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >80,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Bisharo Mohamed Juja Hse</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Xaawo Noor Hassan</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >195,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Hashi/y. shirwac</td> <td>35,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Ahmed Beela Faate</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Maxamed Ali Hashi</td> <td>35,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >185,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Liban  Haji musse</td> <td>37,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >534,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Hass Standing order</td> <td>35,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >150,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Services account</td> <td>270,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,482,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Juja hse</td> <td>04/Dec/2018</td> <tr><tr> <td>Safiyo X. Ismail/Coley</td> <td>4,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,016,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Saacid Farah/M/dullo</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-728,750</td> <td>$<b>13,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >58,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed Abdi Gacmo</td> <td>25,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Osman Fandhe</td> <td>440,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdirizak Abshir Kirro</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>5,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Saadiq Xaaruun</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>20,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Daud Lawyer</td> <td>280,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >280,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-2,500,000</td> <td>$<b>20,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >30,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>0</td> <td>1,555,000</td> <td style='font-weight:bold;color:blue;' >-5,436,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Juja hse</td> <td>04/Dec/2018</td> <tr><tr> <td>Zeitun Tower</td> <td>0</td> <td>150,000</td> <td style='font-weight:bold;color:blue;' >-61,700,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed M-pesa</td> <td>200,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >870,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed A Cartan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >18,056,920</td> <td>$<b>0</b></td><td>$<b>11,040</b></td> <td>$<b style='font-weight:bold;color:blue;' >-103,120</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>41,200</td> <td style='font-weight:bold;color:blue;' >-18,775,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-17,022</b></td> <td>Bariyow Pharmacy</td> <td>04/Dec/2018</td> <tr><tr> <td>Ahmed Deeq M-pesa</td> <td>0</td> <td>440,000</td> <td style='font-weight:bold;color:blue;' >190,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed M-pesa</td> <td>0</td> <td>300,000</td> <td style='font-weight:bold;color:blue;' >570,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Abdinasir Warsame</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >1,614,750</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Shugri M Raage</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >32,235,500</td> <td>$<b>0</b></td><td>$<b>600</b></td> <td>$<b style='font-weight:bold;color:blue;' >-342,215</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Mohamed Jiis/Ceelka</td> <td>0</td> <td>150,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;' >4,498,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>2,000,000</td> <td style='font-weight:bold;color:blue;' >-4,500,000</td> <td>$<b>0</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-381,271,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Wiki</td> <td>04/Dec/2018</td> <tr><tr> <td>Fardowso Labaale/ Ushirika Kirro</td> <td>0</td> <td>360,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Farah Gym</td> <td>0</td> <td>274,500</td> <td style='font-weight:bold;color:blue;' >-180,610</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>04/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >12,200,500</td> <td>$<b>0</b></td><td>$<b>50,150</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,912</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Fartun Musse Jalalaqo</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Samatar Tower / expenses</td> <td>0</td> <td>13,500</td> <td style='font-weight:bold;color:blue;' >-123,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Qashin/Dumping</td> <td>04/Dec/2018</td> <tr><tr> <td>Khalif Almunium</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >500,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Said Farah/Kirro</td> <td>325,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,512,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Juja</td> <td>04/Dec/2018</td> <tr><tr> <td>Abdikani X. Farah</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>04/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>800,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-3,700,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,300,000</td> <td>$<b>50,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >70,000</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>0</td> <td>1,300,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>20,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >50,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Bashir Adan</td> <td>5,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,300,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>160,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >160,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Shukri Madoobe</td> <td>05/Dec/2018</td> <tr><tr> <td>Khalif Tower / Abdullahi A Sheikh</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >7,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-5,366,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>E 1</td> <td>05/Dec/2018</td> <tr><tr> <td>Fadumo Farah Saleban</td> <td>30,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >387,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Bashir</td> <td>05/Dec/2018</td> <tr><tr> <td>Bashir Carsaanyo</td> <td>30,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >162,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>160,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >320,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>F O Gurey</td> <td>05/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>10,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-5,356,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>A 2</td> <td>05/Dec/2018</td> <tr><tr> <td>Adizone Tower / Ahmed Lawyer</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Khalif Tower / Jama Abdullahi</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Amino Dhunyale</td> <td>0</td> <td>80,000</td> <td style='font-weight:bold;color:blue;' >4,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Mama Fartun N Guhaad</td> <td>0</td> <td>7,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,650</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Daud Lawyer</td> <td>0</td> <td>280,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Halima Abdiaziz</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Xaawo M  Wali</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >16,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Hashi/y. shirwac</td> <td>0</td> <td>35,000</td> <td style='font-weight:bold;color:blue;' >35,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>C/qafar Nasar</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >3,490,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Yussuf C. Shirwac</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-19,600</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >50,200</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Services account</td> <td>0</td> <td>120,000</td> <td style='font-weight:bold;color:blue;' >1,362,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Parklands</td> <td>05/Dec/2018</td> <tr><tr> <td>Billing Account</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-6,706,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Wareer Gooye</td> <td>05/Dec/2018</td> <tr><tr> <td>Fadumo Ahmed Gulled</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >5,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Macawisle</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,040,000</td> <td>$<b>0</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-10,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Saadiq Xaaruun</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Abdinasir Warsame</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;' >1,114,750</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Fartun Abdi / Sugaal A3</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Ismail Y. Ducaale</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,700</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Gulf/Adizone</td> <td>0</td> <td>1,000,000</td> <td style='font-weight:bold;color:blue;' >-600,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Ali Abdisalan</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >790,090</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Ahmed Noor Amal</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>15,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >420,000</b></td> <td></td> <td>05/Dec/2018</td> <tr><tr> <td>EASTLINE/GULF</td> <td>0</td> <td>5,300,000</td> <td style='font-weight:bold;color:blue;' >-5,314,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Cheques/ 5m bashir</td> <td>05/Dec/2018</td> <tr><tr> <td>Abdirashid Cafa</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-675,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >129,020</b></td> <td>Mursal X Osman</td> <td>05/Dec/2018</td> <tr><tr> <td>Mohamed Sharif farah</td> <td>48,600</td> <td>0</td> <td style='font-weight:bold;color:blue;' >94,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Safiyo X Ismail/C/Nasir</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >150,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>160,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >480,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>hajir</td> <td>06/Dec/2018</td> <tr><tr> <td>Abdi Hassan Abukar</td> <td>480,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >480,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>140,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >620,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Quube</td> <td>06/Dec/2018</td> <tr><tr> <td>Said Farah/Kirro</td> <td>360,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,872,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Ushirika 1</td> <td>06/Dec/2018</td> <tr><tr> <td>Khalif Tower / Said M Musse</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>41,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >70,000</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Hussein Abdullahi / Kirro</td> <td>120,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,120,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ahmed M Hersi Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >720,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-8,450</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Sahro Geele /Kirro Ushirika</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >120,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Abdirahman Said Jama/Jalaloti</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >360,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Weris Yassin/ Kirro Ushirika</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >720,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Nimco Hagi Uk</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >800,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Ushirika 1</td> <td>06/Dec/2018</td> <tr><tr> <td>fadumo Omar Gurey kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >180,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Mohamud M Abdirahman Denmark/ Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >360,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Khalif Kunne / Ushirika</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >240,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Shuriye Abdullahi/ Ushirika Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Fartun Abdi / Sugaal A3</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Noor M Noor</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >120,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Fardowso Labaale/ Ushirika Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Istahil Ali Abdi /Ushirika kirro</td> <td>65,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >287,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Kirro Account</td> <td>0</td> <td>2,225,000</td> <td style='font-weight:bold;color:blue;' >-7,581,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Ushirika 1</td> <td>06/Dec/2018</td> <tr><tr> <td>Services account</td> <td>360,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,722,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Ushirika 1</td> <td>06/Dec/2018</td> <tr><tr> <td>Said M. Musse kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Amal Sharif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-500</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Khalif Kunnow/ corner hse</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>708,000</td> <td style='font-weight:bold;color:blue;' >3,790,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Said M. Musse kirro</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Juja Hse/expenses</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >-112,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Pipe</td> <td>06/Dec/2018</td> <tr><tr> <td>Ahsa FCB</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,100</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Amina M. Xirsi</td> <td>0</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ali Yare</td> <td>0</td> <td>320,000</td> <td style='font-weight:bold;color:blue;' >5,230,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Istahil Ali Abdi /Ushirika kirro</td> <td>0</td> <td>65,000</td> <td style='font-weight:bold;color:blue;' >222,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Mohamud khalif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >49,500</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >-18,815,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-17,022</b></td> <td>Refunded Deposit</td> <td>06/Dec/2018</td> <tr><tr> <td>Saido Ali Omar</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>200</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Bisharo Mohamed Juja Hse</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ali Abdisalan</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >690,090</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Safiyo X. Ismail/Coley</td> <td>0</td> <td>1,000,000</td> <td style='font-weight:bold;color:blue;' >3,016,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Asha Abdikadir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>160</b></td> <td>$<b style='font-weight:bold;color:blue;' >-70</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Xaawo Jibril</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>4,500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-973</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Yussuf Osman Ali</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-140,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,608</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ubah Bootaan</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >540,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Safiyo X. Ismail/self</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >181,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,500</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Ayan Abdi Ali/ Sh Cadaani</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >325,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Electrical Mat./Mwangi</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >620,019</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Said Farah/Kirro</td> <td>340,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,212,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Samatar</td> <td>07/Dec/2018</td> <tr><tr> <td>Fadumo Tubaako/ kiro</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >280,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdirizak Abshir Kirro</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >490,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,000</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Arro Hirsi Magan Kirro</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >490,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Fadumo Qambi kirro</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >340,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-8,100</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdirizak  Daud kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Saynab Suudi/ Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Khadra Adan Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Ali Hassan Samatar Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Nimco Hagi Uk</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >860,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Mohamud Ali Mohamed kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >360,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Hussein M. Shuriye Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Fadumo Abdirahman Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Adan H. Sharmarke Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Hassan Abdirahman Jama Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >420,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Mohamud M. Bulle Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdishakur H. Shuriye Kirro</td> <td>60,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Services account</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,022,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdullahi Guuto</td> <td>38,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >354,750</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdifatah Cagmadhige</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >24,280</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Abdullahi Guuto</td> <td>32,700</td> <td>0</td> <td style='font-weight:bold;color:blue;' >387,450</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Xaawo Jibril</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >27</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Amal Sharif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>500</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Malyun Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >14,000</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Safiyo X. Ismail/self</td> <td>20,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >201,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,500</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>0</td> <td>1,700,000</td> <td style='font-weight:bold;color:blue;' >-9,281,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Samatar</td> <td>07/Dec/2018</td> <tr><tr> <td>Abdifatah Cagmadhige</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >24,280</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Ramla Tower</td> <td>0</td> <td>110,000</td> <td style='font-weight:bold;color:blue;' >-180,338,939</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Frames</td> <td>07/Dec/2018</td> <tr><tr> <td>Ali Abdisalan</td> <td>0</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >620,090</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>07/Dec/2018</td> <tr><tr> <td>Farah Abshir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-39,090</b></td> <td>Xaawo Jibril</td> <td>07/Dec/2018</td> <tr><tr> <td>Mohamed MP</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >7,000</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,500</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Deeqo Hussein / Heights</td> <td>180,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >180,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Shop</td> <td>08/Dec/2018</td> <tr><tr> <td>Samatar Canshuur</td> <td>3,740,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >3,740,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Asha Xareed</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>125,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >125,000</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Said Shabac</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>11,500</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >39,960</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdullahi Guuto</td> <td>39,500</td> <td>0</td> <td style='font-weight:bold;color:blue;' >426,950</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ahsa FCB</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-100</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Khalif Tower/Shugri Madoobe</td> <td>2,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >7,800,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Faiza X. Hussein</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >71,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,493</b></td> <td>F O Gurey</td> <td>08/Dec/2018</td> <tr><tr> <td>Khalif Tower/ Ayan Ali Cartan</td> <td>0</td> <td>6,500,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamed Black</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,500</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,500</b></td> <td>Tickets</td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamud Tamu</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>26,383</b></td> <td>$<b style='font-weight:bold;color:blue;' >-110,000</b></td> <td>To Mohamud Khalif A/c</td> <td>06/Dec/2018</td> <tr><tr> <td>Mohamud khalif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>26,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >75,500</b></td> <td>Frm Profit</td> <td>06/Dec/2018</td> <tr><tr> <td>Five star</td> <td>4,517,350</td> <td>0</td> <td style='font-weight:bold;color:blue;' >28,043,840</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Abdinasir Warsame</td> <td>173,750</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,288,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamud khalif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>75,500</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Badar Hardware</td> <td>1,392,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >12,633,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Electrical Mat./Mwangi</td> <td>126,090</td> <td>0</td> <td style='font-weight:bold;color:blue;' >746,109</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>C/qafar Nasar</td> <td>525,600</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,015,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>911,500</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,702,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>08/Dec/2018</td> <tr><tr> <td>Brand Limited</td> <td>232,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,846,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Electrical Mat./Mwangi</td> <td>162,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >908,109</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>novel paints Khalif</td> <td>55,377</td> <td>0</td> <td style='font-weight:bold;color:blue;' >143,073</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>240,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,942,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ileys Hardware</td> <td>241,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >241,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Ali Abdisalan</td> <td>407,100</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,027,190</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Adan Timber</td> <td>225,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >747,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ahmed Deeq M-pesa</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >490,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Jama M-pesa</td> <td>200,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >268,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamed A. cartan 3</td> <td>8,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >8,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza/ Rajesh Patel</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >13,417,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Saadiq Xaaruun</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Noor M Noor</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ayan Ali Cartan</td> <td>10,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >10,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Samatar Tower</td> <td>0</td> <td>3,771,488</td> <td style='font-weight:bold;color:blue;' >-220,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>canshuur</td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamed A Cartan</td> <td>5,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >23,056,920</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-103,120</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ramla Tower</td> <td>0</td> <td>2,500,000</td> <td style='font-weight:bold;color:blue;' >-182,838,939</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>cartan</td> <td>08/Dec/2018</td> <tr><tr> <td>Samatar Tower / Profit</td> <td>0</td> <td>6,000,000</td> <td style='font-weight:bold;color:blue;' >-6,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ahmed M. Hersi</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-2,803,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,481</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ayan Abdi Ali/ Sh Cadaani</td> <td>0</td> <td>325,300</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sh cadaani</td> <td>08/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>3,000,000</td> <td style='font-weight:bold;color:blue;' >-384,271,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Cartan</td> <td>08/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>237,000</td> <td style='font-weight:bold;color:blue;' >4,705,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>08/Dec/2018</td> <tr><tr> <td>Adizone tower</td> <td>0</td> <td>400,000</td> <td style='font-weight:bold;color:blue;' >-149,182,101</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >60,000</b></td> <td>Said Salary</td> <td>08/Dec/2018</td> <tr><tr> <td>Khalif Stima</td> <td>0</td> <td>162,100</td> <td style='font-weight:bold;color:blue;' >4,154,625</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Khalif  Tower</td> <td>0</td> <td>554,000</td> <td style='font-weight:bold;color:blue;' >-289,159,743</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>08/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Khalif Rangi</td> <td>0</td> <td>47,100</td> <td style='font-weight:bold;color:blue;' >-147,100</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>4,910,000</td> <td style='font-weight:bold;color:blue;' >-389,181,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>08/Dec/2018</td> <tr><tr> <td>Alfred Adizone</td> <td>0</td> <td>1,127,500</td> <td style='font-weight:bold;color:blue;' >-26,015,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Gitau Hurlingham</td> <td>0</td> <td>765,000</td> <td style='font-weight:bold;color:blue;' >1,899,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Ramla Tower</td> <td>0</td> <td>1,928,000</td> <td style='font-weight:bold;color:blue;' >-184,766,939</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti</td> <td>08/Dec/2018</td> <tr><tr> <td>Adizone tower</td> <td>0</td> <td>3,059,400</td> <td style='font-weight:bold;color:blue;' >-152,241,501</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >60,000</b></td> <td>Sabti</td> <td>08/Dec/2018</td> <tr><tr> <td>Gitau City Park</td> <td>0</td> <td>204,000</td> <td style='font-weight:bold;color:blue;' >-204,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>City Park Tower</td> <td>0</td> <td>2,689,300</td> <td style='font-weight:bold;color:blue;' >-106,468,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sabti/ Startinng Date</td> <td>08/Dec/2018</td> <tr><tr> <td>Gitau Ramla</td> <td>0</td> <td>465,000</td> <td style='font-weight:bold;color:blue;' >-8,348,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Mwangi Timber</td> <td>0</td> <td>240,000</td> <td style='font-weight:bold;color:blue;' >197,900</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Onyango/wardrobe</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >300,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Mohamud khalif</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>100,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-100,000</b></td> <td></td> <td>08/Dec/2018</td> <tr><tr> <td>Said Farah/ Cement</td> <td>0</td> <td>1,960,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Shugri Madoobe</td> <td>08/Dec/2018</td> <tr><tr> <td>Samatar Tower / Profit</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-6,000,000</td> <td>$<b>0</b></td><td>$<b>110,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-110,000</b></td> <td>Tamu Profit</td> <td>08/Dec/2018</td> <tr><tr> <td>Sadiq farah Abdi</td> <td>0</td> <td>210,000</td> <td style='font-weight:bold;color:blue;' >-2,555,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td>$2000/Sweden</td> <td>08/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>0</td> <td>665,000</td> <td style='font-weight:bold;color:blue;' >-4,095,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Parklands</td> <td>02/Dec/2018</td> <tr><tr> <td>Adizone tower</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-152,241,501</td> <td>$<b>35,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >95,000</b></td> <td>Cafa</td> <td>09/Dec/2018</td> <tr><tr> <td>Sharif Ahmed</td> <td>700,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,340,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,500</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,500</td> <td>$<b>150</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >350</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Samatar Tower / Abuukar dhaqane</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,400,000</td> <td>$<b>4,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >4,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Abdikani Abdullahi Noor</td> <td>3,950,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >16,150,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,912</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-9,201,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>F3 Samatar</td> <td>09/Dec/2018</td> <tr><tr> <td>Abdirizak Abshir Kirro</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >490,000</td> <td>$<b>5,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Khalif Tower / Khadra Ismail Haji</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,085,000</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>xaawo Farah/F. Ashkir</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Said Sabuni</td> <td>20,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>130,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >750,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Xaawo Koronto</td> <td>09/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-9,131,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>B1 Samatar</td> <td>09/Dec/2018</td> <tr><tr> <td>Abdinasir Warsame</td> <td>500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,788,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Abdirashid Cafa</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-675,000</td> <td>$<b>0</b></td><td>$<b>129,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >20</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Mohamed M-pesa</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >370,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Sahro M Abdullahi</td> <td>0</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Mohamed Ali Norway</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Mohamud M. Bulle Kirro</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Mohamed Ali Madobe</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Sadiq farah Abdi</td> <td>0</td> <td>53,000</td> <td style='font-weight:bold;color:blue;' >-2,608,300</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td>Kirro</td> <td>09/Dec/2018</td> <tr><tr> <td>Xassan Xussen/oday</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >-70,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>275,000</td> <td style='font-weight:bold;color:blue;' >-389,456,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>09/Dec/2018</td> <tr><tr> <td>Sahro Geele /Kirro Ushirika</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >60,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Mohamed Salaad/bootaan</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >-3,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Ramla Tower</td> <td>0</td> <td>195,000</td> <td style='font-weight:bold;color:blue;' >-184,961,939</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>salary</td> <td>09/Dec/2018</td> <tr><tr> <td>Khalif  Tower</td> <td>0</td> <td>195,000</td> <td style='font-weight:bold;color:blue;' >-289,354,743</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Salary</td> <td>09/Dec/2018</td> <tr><tr> <td>Billing Account</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >-6,736,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>seyroon Biil</td> <td>09/Dec/2018</td> <tr><tr> <td>Adizone tower</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-152,341,501</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >95,000</b></td> <td>Colaad</td> <td>09/Dec/2018</td> <tr><tr> <td>Adizone Tower / Abdikadri M Walow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>79,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >79,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,880,500</td> <td>$<b>16,574</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >127,486</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Dahir Said</td> <td>75,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >75,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Saadiq Xaaruun</td> <td>8,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >28,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>140,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >890,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Abdiweli Ali</td> <td>10/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,380,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >127,486</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Geenyo Musse A 5</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>40,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >40,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Adizone Tower /</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>20,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >20,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>1,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >350</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza</td> <td>0</td> <td>8,000,000</td> <td style='font-weight:bold;color:blue;' >-397,456,480</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Saadaq Xaaruun</td> <td>10/Dec/2018</td> <tr><tr> <td>Ruqiyo Dahabley</td> <td>0</td> <td>28,000</td> <td style='font-weight:bold;color:blue;' >-28,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Aato</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,046,300</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-40,700</b></td> <td>M cartan</td> <td>10/Dec/2018</td> <tr><tr> <td>abdul kadir M Walow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>79,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >18</b></td> <td>Adizone Tower Unit</td> <td>10/Dec/2018</td> <tr><tr> <td>khadro Mohamed Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>300</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>10,270,000</td> <td style='font-weight:bold;color:blue;' >5,880,500</td> <td>$<b>100,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >110,912</b></td> <td>102.7</td> <td>09/Dec/2018</td> <tr><tr> <td>Homeland / expenses</td> <td>0</td> <td>65,350</td> <td style='font-weight:bold;color:blue;' >-199,350</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sewerage</td> <td>10/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Bashir Adan</td> <td>0</td> <td>500,000</td> <td style='font-weight:bold;color:blue;' >-500,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >50,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,380,500</td> <td>$<b>0</b></td><td>$<b>60,180</b></td> <td>$<b style='font-weight:bold;color:blue;' >67,306</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Mohamed A Cartan</td> <td>0</td> <td>6,000,000</td> <td style='font-weight:bold;color:blue;' >17,056,920</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-103,120</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Juja Hse/expenses</td> <td>0</td> <td>77,050</td> <td style='font-weight:bold;color:blue;' >-189,050</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sewerage Bill</td> <td>10/Dec/2018</td> <tr><tr> <td>Samatar Tower / expenses</td> <td>0</td> <td>58,200</td> <td style='font-weight:bold;color:blue;' >-181,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sewerage Bill</td> <td>10/Dec/2018</td> <tr><tr> <td>Services account</td> <td>0</td> <td>84,000</td> <td style='font-weight:bold;color:blue;' >1,938,360</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Parklands</td> <td>10/Dec/2018</td> <tr><tr> <td>Fowsi Ali Balle</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-250,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Abdishakur H. Shuriye Kirro</td> <td>0</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Ushirika Tower Expenses</td> <td>0</td> <td>75,700</td> <td style='font-weight:bold;color:blue;' >-260,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Sewerage Bill</td> <td>10/Dec/2018</td> <tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,500</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >300</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Khalif Tower / Fadumo Ali Ahmed</td> <td>210,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >210,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >82,600</b></td> <td>Hamdi</td> <td>10/Dec/2018</td> <tr><tr> <td>EASTLINE/GULF</td> <td>5,300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-14,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Gulf/Adizone</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >400,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Khalif Tower / Khadra Ismail Haji</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,085,000</td> <td>$<b>5,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >15,000</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-9,061,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>F1 ushirika</td> <td>11/Dec/2018</td> <tr><tr> <td>Badar Hardware</td> <td>0</td> <td>3,000,000</td> <td style='font-weight:bold;color:blue;' >9,633,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Cheques</td> <td>11/Dec/2018</td> <tr><tr> <td>Mansukh</td> <td>0</td> <td>3,000,000</td> <td style='font-weight:bold;color:blue;' >3,281,397</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Cheques</td> <td>11/Dec/2018</td> <tr><tr> <td>Tononoka Steel</td> <td>0</td> <td>976,150</td> <td style='font-weight:bold;color:blue;' >11,865,710</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>cheque 1</td> <td>11/Dec/2018</td> <tr><tr> <td>Khalif Tower / Xidda Cumar</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>9,700</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >75,000</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>677,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-8,384,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>GAB</td> <td>11/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Amino Cabaas</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,500</td> <td>$<b>0</b></td><td>$<b>300</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Shugri Madoobe</td> <td>84,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-65,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>7,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-8,377,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>A2 juja</td> <td>12/Dec/2018</td> <tr><tr> <td>Adizone Tower / Shugri Garad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,000,000</td> <td>$<b>30,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >49,824</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>16,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-8,361,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Homeland D4 A6</td> <td>12/Dec/2018</td> <tr><tr> <td>Malyun Abdullahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >24,000</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Khalif Tower / Sacdiyo Bashir</td> <td>300,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >9,300,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Ushirika Heights</td> <td>130,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,020,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Deeqo/Wewe</td> <td>12/Dec/2018</td> <tr><tr> <td>Jamal Abdi Noor</td> <td>361,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >130,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,000</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-18,915,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-17,022</b></td> <td>Shugri Biil</td> <td>12/Dec/2018</td> <tr><tr> <td>Ismail Y. Ducaale</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,650</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>M. A. M</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-149,000</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,370</b></td> <td>Ahmed M Ali</td> <td>12/Dec/2018</td> <tr><tr> <td>Suldaan Weegaan</td> <td>0</td> <td>1,028,000</td> <td style='font-weight:bold;color:blue;' >1,572,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>GYM Khalif Tower</td> <td>0</td> <td>300,000</td> <td style='font-weight:bold;color:blue;' >-300,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Contractor</td> <td>12/Dec/2018</td> <tr><tr> <td>Mohamed Ali Madobe</td> <td>0</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>M. A. M</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >-179,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,370</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Said Farah/Self</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-18,925,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-17,022</b></td> <td>Wiilasha Shopping</td> <td>12/Dec/2018</td> <tr><tr> <td>Dahir abshir</td> <td>103,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >103,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Abdirizak Ahmed / amal</td> <td>650,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >950,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>25,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-8,336,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>L7 Samatar</td> <td>13/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Adan Noor</td> <td>401,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >401,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Farah Gym</td> <td>420,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >239,390</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Samira Mohamed Hassan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >38,000</td> <td>$<b>0</b></td><td>$<b>200</b></td> <td>$<b style='font-weight:bold;color:blue;' >-400</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Kirro Account</td> <td>70,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-8,266,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>A3 ushirika</td> <td>13/Dec/2018</td> <tr><tr> <td>C/qafar Nasar</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >3,815,600</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Halima Warsame/Y. Ibrahim</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Saynab Suudi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >15,000,000</td> <td>$<b>0</b></td><td>$<b>3,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-93,500</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Mohamed Adan Kirro</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Patrick Rwanda</td> <td>700,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >700,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >16,413</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Ahmed M. Hersi</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-2,813,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,481</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Abdikani Abdullahi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >6,380,500</td> <td>$<b>0</b></td><td>$<b>55,862</b></td> <td>$<b style='font-weight:bold;color:blue;' >11,444</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>540,000</td> <td style='font-weight:bold;color:blue;' >4,165,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Adizone</td> <td>13/Dec/2018</td> <tr><tr> <td>Ahmed bbk</td> <td>0</td> <td>700,000</td> <td style='font-weight:bold;color:blue;' >-784,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>Jamal Abdi Noor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >130,000</td> <td>$<b>1,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >8,000</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Ahmed M. Hersi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-2,813,200</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,581</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Ali Abdisalan</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >827,190</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Ushirika Tower Expenses</td> <td>0</td> <td>21,000</td> <td style='font-weight:bold;color:blue;' >-281,700</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>Diesel</td> <td>14/Dec/2018</td> <tr><tr> <td>Safar Cons</td> <td>0</td> <td>168,000</td> <td style='font-weight:bold;color:blue;' >3,997,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Abdirahman Ali</td> <td>5,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >14,000,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Raymond and Isse</td> <td>0</td> <td>1,000,000</td> <td style='font-weight:bold;color:blue;' >7,700,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Description </th> <th> Date </th>  </tr><tr> <td>Eastline Gulf</td> <td>0</td> <td>4,000,000</td> <td style='font-weight:bold;color:blue;' >-4,014,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Abdirizak Ahmed / amal</td> <td>1,000,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,950,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>14/Dec/2018</td> <tr><tr> <td>Sharif Ahmed</td> <td>0</td> <td>1,340,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>13,035</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,535</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Fadumo Abshir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>90,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >90,000</b></td> <td></td> <td>09/Dec/2018</td> <tr><tr> <td>Adizone Tower / Ibrahim A Ali</td> <td>500,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,500,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>12/Dec/2018</td> <tr><tr> <td>Adizone Tower / Geenyo Musse A 5</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >40,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Yussuf Ahmed Dahir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >180,000</b></td> <td></td> <td>10/Dec/2018</td> <tr><tr> <td>C/fatax Ground floor</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >70,000</td> <td>$<b>0</b></td><td>$<b>43,970</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>To Samatar Tower Purchases</td> <td>06/Dec/2018</td> <tr><tr> <td>Samatar Tower / Abdifatah Ground floor</td> <td>4,400,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >4,400,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>06/Dec/2018</td> <tr><tr> <td>Samira Mohamed Hassan</td> <td>0</td> <td>38,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>400</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>13/Dec/2018</td> <tr><tr> <td>dahir parklands</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-240,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Halima Khamis</td> <td>0</td> <td>305,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>02/Dec/2018</td> <tr><tr> <td>Fowsiyo Jamal /D 4</td> <td>0</td> <td>240,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>to jamal</td> <td>07/Dec/2018</td> <tr><tr> <td>Jamal Abdi Noor</td> <td>200,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >-231,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,000</b></td> <td>frm Kirro</td> <td>07/Dec/2018</td> <tr><tr> <td>Hurlingham Plaza / Yussuf Ahmed Dahir</td> <td>1,800,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,800,000</td> <td>$<b>0</b></td><td>$<b>180,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <td>11/Dec/2018</td> <tr><tr> <td>Aato</td> <td>0</td> <td>4,046,300</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>39,284</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,416</b></td> <td></td> <td>11/Dec/2018</td> <tr></table><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th> <th>Total Dollar In </th> <th>Total Dollar Out</th> <th> Total Dollar Balance</th></tr><tr><td>127,627,733</td><td>143,929,673</td><td style='font-weight:bold;color:blue;' >-16,301,940</td><td>$1,059,893</td><td>$1,114,424</td><td style='font-weight:bold;color:blue;'>$-54,531</td></tr></table></body><html>

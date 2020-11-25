@@ -1,0 +1,821 @@
+<html><head> <style>  
+    @import url('select.css');
+*{
+	margin:0px;
+	padding:0px;
+	list-style-type:none;
+}
+
+
+body{
+
+	font-family:Arial;
+	font-size:12px;
+	color:#303030;
+ 
+}
+
+label{
+	display:inline-block;
+	font-weight:bold;
+	text-align:right;
+	line-height:25px;
+	font-size:16px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+
+ 
+ 
+/*table design */
+
+.table {
+	
+  background: white;
+  border-radius:31px;
+  border-collapse:collapse;
+ 
+  margin: auto;
+  
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+  display: table; 
+  padding: 31px;  
+ 
+}
+
+
+.table th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: bold;
+  padding:16px;
+  
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table th:first-child {
+  border-top-left-radius:3px;
+}
+
+.table th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+.table tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+
+.table tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;
+}
+ 
+.table tr:first-child {
+  border-top:none;
+}
+
+.table tr:last-child {
+  border-bottom:none;
+}
+ 
+.table tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+.table tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+ 
+.table td {
+  background:#FFFFFF;
+  padding:15px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:16px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.table td:last-child {
+  border-right: 0px;
+}
+
+/* end of table design */
+
+ 
+ 
+
+
+
+
+
+
+
+
+img{
+	border:none;
+}
+h2{ /*Dark gray titles*/
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h3{ /*For titles*/
+	margin-bottom:15px;
+	font-size:22px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+}
+h4{
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+h5{ /*address prompt*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	color:#404040;
+}
+h6{ /*address in shipping info*/
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:normal;
+	color:#606060;
+}
+
+
+.dates{
+	color:#CC6600;
+	font-weight:bold;
+}
+.offers{
+	color:#404040;
+	font-weight:bold;
+}
+.usernames{
+	color:#006699;
+	font-weight:900;
+}
+.subtitles{
+	color:#707070;
+}
+#wrapper{
+	 
+	margin:15px auto;
+	padding:10px;
+
+	}
+
+
+
+
+.button {
+	-moz-box-shadow: 0px 1px 0px 0px #fed897;
+	-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+	box-shadow: 0px 1px 0px 0px #fed897;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+	background-color:#f6b33d;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:20px;
+	border:1px solid #eda933;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:2px 10px;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+}
+.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d29105), color-stop(1, #f6b33d) );
+	background:-moz-linear-gradient( center top, #d29105 5%, #f6b33d 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d29105', endColorstr='#f6b33d');
+	background-color:#d29105;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+.buttons
+{
+	display: inline-block;
+	white-space: nowrap;
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+	background-image: -webkit-linear-gradient(top, #eee, #ccc);
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -ms-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+	border: 1px solid #777;
+	padding: 0 1.5em;
+	margin: 0.1em;
+	font: bold 1em/2em Arial, Helvetica;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	-moz-border-radius: .2em;
+	-webkit-border-radius: .2em;
+	border-radius: .2em;
+	-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.buttons:hover
+{
+	background-color: #ddd;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+	background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+	background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+	background-image: -o-linear-gradient(top, #fafafa, #ddd);
+	background-image: linear-gradient(top, #fafafa, #ddd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');
+}
+
+.buttons:active
+{
+	-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	position: relative;
+	top: 1px;
+}
+
+.buttons:focus
+{
+	outline: 0;
+	background: #fafafa;
+}
+
+.buttons:before
+{
+	background: #ccc;
+	background: rgba(0,0,0,.1);
+	float: left;
+	width: 1em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 1em 0 -1em;
+	padding: 0 .2em;
+	-moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-moz-border-radius: .15em 0 0 .15em;
+	-webkit-border-radius: .15em 0 0 .15em;
+	border-radius: .15em 0 0 .15em;
+        pointer-events: none;
+}
+
+/* Hexadecimal entities for the icons */
+
+.add:before
+{
+	content: "\271A";
+}
+
+.edit:before
+{
+	content: "\270E";
+}
+
+.delete:before
+{
+	content: "\2718";
+}
+
+.save:before
+{
+	content: "\2714";
+}
+
+.email:before
+{
+	content: "\2709";
+}
+
+.like:before
+{
+	content: "\2764";
+}
+
+.next:before
+{
+	content: "\279C";
+}
+
+.star:before
+{
+	content: "\2605";
+}
+
+.spark:before
+{
+	content: "\2737";
+}
+
+.play:before
+{
+	content: "\25B6";
+}
+
+
+
+
+
+
+
+
+
+body {
+	background-color: #f0f0f0;
+	font-family: helvetica, "Times New Roman", Times, serif;
+}
+
+h3 {
+ margin: 5px; /* vertical-align: middle; */ 
+ /* text-align: left; */ border-bottom: 2px solid blue; 
+ width: auto; 
+ /* margin-left: 15%; */ 
+}
+
+a:focus {
+	outline: none;
+}
+.clear {
+	clear: both;
+}
+
+.error{
+	border-radius:1em;
+	color:red;
+	background-color:#000;
+	padding:10px;
+	margin:10px;
+	font-family:Arial;
+	font-weight:bold;
+	text-shadow:1px 1px 3px #080808;
+}
+
+
+.date_manual{    
+
+width: 178px !important;
+
+}
+
+#settings_bage{
+padding:10px;
+}
+#logout{
+float:right;
+}
+#hr,#hr2{
+margin:3px;
+
+box-shadow: 3px 0px 8px #FC05DC;
+}
+ 
+ #hover_div{
+ position:absolute;
+ display:none;
+ padding:5px;
+ background:#ccc;
+ color:blue;
+ font-style:italic;
+ font-size:11px;
+ border-radius:2em;
+  border-bottom-left-radius:0em;
+ }
+ 
+
+#settings_bage a{
+float:right;
+}
+#settings_bage p{
+	padding:4px;
+	display:block;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+	width:700px;
+}
+#totals pre, #totals2 pre{
+		-moz-box-shadow: 0px 1px 0px 0px #fed897;
+		-webkit-box-shadow: 0px 1px 0px 0px #fed897;
+		box-shadow: 0px 1px 0px 0px #fed897;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+		 
+		border-radius:5px;
+		color:#ffffff;
+		font-family:arial;
+		font-size:14px;
+		font-weight:bold;
+		padding:5px;
+		 
+		display:inline-block;
+}
+
+
+
+#totals div, #totals2 div{
+	width:auto; 
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    display:inline-block;
+}
+
+
+#totals strong, #totals2 strong{
+	/* width:700px !important; */
+  background: #FFFFFF;
+    padding: 15px;
+    padding-left:0;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 16px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+div#totals  .table tr:hover td ,div#totals2  .table tr:hover td,div#totals  td ,div#totals2  td{
+  background:#FFFFFF;
+}
+div#totals  th ,div#totals2  th{
+  width:165px;
+}
+
+
+
+#page-wrap {
+	position: relative;
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+}
+
+
+#add_div, #change_delete_pass, #edit_div ,#new_exp_div2, #worning_to_delete_exp, #new_exp_div,#edit_exp_div, #worning_to_delete,#error_del, #change_username, #change_pass,#feedback, #Deleted,#feedback_log, #feedback_3{
+
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#61FD0A; 
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+ 
+
+
+#blance_sidbar{
+position: absolute;
+text-align:left;
+left: 577;
+top: 22;
+width:580px;
+	
+	padding:10px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:10px 10px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+	height:600px;   /* 600px */
+	overflow-x:auto;
+}
+#blance_sidbar pre{
+box-shadow: 5px 5px 15px rgba(148, 26, 99, 0.41); /*zero*/
+	border-radius:7px;
+	margin:4px;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	padding:4px;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+	background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+
+}
+
+
+#blance_sidbar span{
+color:red;
+}
+
+
+
+ #castomer_details, #castomer_details2{
+ 
+ }
+
+
+#main_details_bage{
+	margin:10px;
+	padding:20px;
+	
+
+}
+
+ul#main-nav {
+	margin-left: 20px;
+}
+ul#main-nav li {
+	float: left;
+	position: relative;
+	margin-left: -20px;
+	display: inline;
+}
+ul#main-nav li a {
+	position: relative;
+	width: 110px;
+	height: 29px;
+	display: block;
+	background-image: url('../images/tabs.png');
+	background-position: center center;
+	color: #44403b;
+	text-decoration: none;
+	font-size: 14px;
+	padding-top: 12px;
+	text-align: left;
+	padding-left: 30px;
+	font-weight: bold;
+}
+ul#main-nav li.home a {
+	background-image: url('../images/tab-home.png');
+}
+ul#main-nav li.current a {
+	background-position: top;
+	color: #ffffff;
+}
+ul#main-nav li a:hover {
+	background-position: bottom;
+	color: #ffffff;
+}
+ul#main-nav li.current a:hover {
+	background-position: top; /*To Prevent the Current tab from changing colour on hover*/
+	color: #ffffff;
+}
+ul#main-nav li.current {
+	z-index: 100;
+}
+ul#main-nav li.home {
+	z-index: 100;
+}
+ul#main-nav li.portfolio {
+	z-index: 99;
+}
+ul#main-nav li.services {
+	z-index: 98;
+}
+ul#main-nav li.about {
+	z-index: 97;
+}
+ul#main-nav li.contact {
+	z-index: 96;
+}
+#image {
+	position: relative;
+	float: left;
+	margin-left: 40px;
+	margin-top: 25px;
+}
+#container {
+
+	position: relative;
+	background-color: #577295;
+	background-image: url('../images/featured-border.jpg');
+	background-repeat: repeat-y;
+	background-position: left;
+ 
+	padding:10px;
+	min-height:669px;
+	 
+	border-bottom-left-radius:0px;
+	border-bottom-right-radius:0px;
+ 
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+
+
+
+#searchbox
+{
+	background: #eaf8fc;
+	background-image: -moz-linear-gradient(#fff, #d4e8ec);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #d4e8ec),color-stop(1, #fff));
+	
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c4d9df #a4c3ca #83afb7;            
+	width: 500px;
+	height: 35px;
+	padding: 10px;
+	margin:30px;
+	overflow: hidden; /* Clear floats */
+}
+
+
+
+
+
+#search, #search_button
+{
+	
+}
+
+#search
+{
+	padding: 5px 9px;
+	height: 35px;
+	width: 380px;
+	border: 1px solid #a4c3ca;
+	font: normal 13px 'trebuchet MS', arial, helvetica;
+
+	background: #f1f1f1;
+	
+	-moz-border-radius: 50px 3px 3px 50px;
+	 border-radius: 50px 3px 3px 50px;
+	 -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);
+	 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) inset, 0 1px 0 rgba(255, 255, 255, 1);            
+}
+
+/* ----------------------- */
+
+#search_button
+{		
+	background: #6cbb6b;
+	background-image: -moz-linear-gradient(#95d788, #6cbb6b);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #6cbb6b),color-stop(1, #95d788));
+	
+	-moz-border-radius: 3px 50px 50px 3px;
+	border-radius: 3px 50px 50px 3px;
+	
+	border-width: 1px;
+	border-style: solid;
+	border-color: #7eba7c #578e57 #447d43;
+	
+	 -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	 box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;   		
+
+	height: 35px;
+	margin: 0 0 0 10px;
+        padding: 0;
+	width: 90px;
+	cursor: pointer;
+	font: bold 14px Arial, Helvetica;
+	color: #23441e;
+	
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+#search_button:hover
+{		
+	background: #95d788;
+	background-image: -moz-linear-gradient(#6cbb6b, #95d788);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #95d788),color-stop(1, #6cbb6b));
+}	
+
+#search_button:active
+{		
+	background: #95d788;
+	outline: none;
+   
+	 -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#search_button::-moz-focus-inner
+{
+       border: 0;  /* Small centering fix for Firefox */
+}		
+
+
+
+
+
+
+
+.input{
+	font:bold 16px verdana;
+	padding:5px; 
+	border:1px solid #b9bdc1;
+	width:200px;
+	color:#505050;
+}
+.input:focus{
+	background-color:white;
+	border:1px solid #f6bdd3;
+}
+
+.hover{
+color:#fff;
+cursor: pointer;
+
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f6b33d), color-stop(1, #d29105) );
+		background:-moz-linear-gradient( center top, #f6b33d 5%, #d29105 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6b33d', endColorstr='#d29105');
+		background-color:#f6b33d;
+}
+
+.feedback {
+
+	text-align:center;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 5px #303030;
+	margin:10px;
+	padding:20px;
+	background:#006699;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	box-shadow:5px 5px 15px #A0A0A0; /*zero*/
+	-moz-box-shadow:5px 5px 15px #A0A0A0;
+	-webkit-box-shadow:5px 5px 15px #A0A0A0;
+}
+
+.remove_default_table_style{
+ 
+} body{ padding: 10px; background-color: orange;} </style></head> <body> <h3><strong style="color:blue;">A</strong>ll Customers |   (198) Customers </h3><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th> <th>Total Dollar In </th> <th>Total Dollar Out</th> <th> Total Dollar Balance</th></tr><tr><td>73,406,766</td><td>59,192,874</td><td style='font-weight:bold;color:blue;' >14,213,892</td><td>$7,090,837</td><td>$6,590,268</td><td style='font-weight:bold;color:blue;'>$500,569</td></tr></table><br>() <table class="table"><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>Abkow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>36,962</b></td><td>$<b>51,178</b></td> <td>$<b style='font-weight:bold;color:blue;' >-14,216</b></td> <td></td> <tr><tr> <td>Abshiro sheikhdoon</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,500</b></td><td>$<b>1,524</b></td> <td>$<b style='font-weight:bold;color:blue;' >-24</b></td> <td></td> <tr><tr> <td>Abuukar faarah</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>306</b></td> <td>$<b style='font-weight:bold;color:blue;' >-306</b></td> <td></td> <tr><tr> <td>Agoonta</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>15</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >15</b></td> <td></td> <tr><tr> <td>Ahmed buule 2</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Ahmed buulle</td> <td>33,387,317</td> <td>26,320,500</td> <td style='font-weight:bold;color:blue;' >7,066,817</td> <td>$<b>293,852</b></td><td>$<b>184,158</b></td> <td>$<b style='font-weight:bold;color:blue;' >109,694</b></td> <td>0799330550</td> <tr><tr> <td>ahmed salaad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>59,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >59,000</b></td> <td></td> <tr><tr> <td>AL jaziira</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>655</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >655</b></td> <td></td> <tr><tr> <td>Ardoyne cali gaab</td> <td>83,660</td> <td>33,660</td> <td style='font-weight:bold;color:blue;' >50,000</td> <td>$<b>1,210</b></td><td>$<b>1,210</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>aweys cali ciid</td> <td>891,850</td> <td>308,000</td> <td style='font-weight:bold;color:blue;' >583,850</td> <td>$<b>3,435</b></td><td>$<b>1,413</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,022</b></td> <td></td> <tr><tr> <td>awoowe ahmed nuur</td> <td>0</td> <td>380,550</td> <td style='font-weight:bold;color:blue;' >-380,550</td> <td>$<b>0</b></td><td>$<b>3,875</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,875</b></td> <td></td> <tr><tr> <td>Bashiir dheere</td> <td>61,860</td> <td>21,016</td> <td style='font-weight:bold;color:blue;' >40,844</td> <td>$<b>1,070</b></td><td>$<b>1,070</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Bashiir haayow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>294</b></td> <td>$<b style='font-weight:bold;color:blue;' >-294</b></td> <td></td> <tr><tr> <td>Batuulo daahir</td> <td>122,650</td> <td>0</td> <td style='font-weight:bold;color:blue;' >122,650</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Beeley</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>400</b></td> <td>$<b style='font-weight:bold;color:blue;' >-400</b></td> <td></td> <tr><tr> <td>Boorsooyinka</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>182</b></td><td>$<b>95</b></td> <td>$<b style='font-weight:bold;color:blue;' >87</b></td> <td></td> <tr><tr> <td>Buuhoodle</td> <td>0</td> <td>9,000</td> <td style='font-weight:bold;color:blue;' >-9,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>C/fatah daahir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-100</b></td> <td></td> <tr><tr> <td>c/fatax tyres</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>4,202</b></td><td>$<b>5,420</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,218</b></td> <td></td> <tr><tr> <td>c/kariin ciise faarah</td> <td>968,000</td> <td>968,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>188,700</b></td><td>$<b>209,542</b></td> <td>$<b style='font-weight:bold;color:blue;' >-20,842</b></td> <td>0726600039</td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>c/laahi ahmed sheikh</td> <td>0</td> <td>498,360</td> <td style='font-weight:bold;color:blue;' >-498,360</td> <td>$<b>5,834</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,834</b></td> <td></td> <tr><tr> <td>c/laahi bilig</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>6,079</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >6,079</b></td> <td></td> <tr><tr> <td>c/laahi ciidle bare</td> <td>638,940</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >608,940</td> <td>$<b>0</b></td><td>$<b>780</b></td> <td>$<b style='font-weight:bold;color:blue;' >-780</b></td> <td></td> <tr><tr> <td>C/laahi huseen</td> <td>0</td> <td>88,000</td> <td style='font-weight:bold;color:blue;' >-88,000</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >-50</b></td> <td></td> <tr><tr> <td>c/qaadir beeley</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>179,823</b></td><td>$<b>169,773</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,050</b></td> <td></td> <tr><tr> <td>c/rahmaan husen</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>40</b></td> <td>$<b style='font-weight:bold;color:blue;' >-40</b></td> <td></td> <tr><tr> <td>c/rahmaan kawkawle</td> <td>10,000</td> <td>60,000</td> <td style='font-weight:bold;color:blue;' >-50,000</td> <td>$<b>3,011</b></td><td>$<b>1,001</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,010</b></td> <td></td> <tr><tr> <td>c/rahman cilmi siyaad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>838</b></td> <td>$<b style='font-weight:bold;color:blue;' >-838</b></td> <td></td> <tr><tr> <td>C/Rahmans shido</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>9,500</b></td><td>$<b>9,208</b></td> <td>$<b style='font-weight:bold;color:blue;' >292</b></td> <td></td> <tr><tr> <td>c/razaq amco</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>137,350</b></td><td>$<b>149,516</b></td> <td>$<b style='font-weight:bold;color:blue;' >-12,166</b></td> <td>0708880819</td> <tr><tr> <td>c/shakuur shire</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>2,256</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,256</b></td> <td></td> <tr><tr> <td>Caamir</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>149,286</b></td><td>$<b>149,286</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Cabaas guure</td> <td>0</td> <td>42,627</td> <td style='font-weight:bold;color:blue;' >-42,627</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>cabaas haashi</td> <td>0</td> <td>1,000</td> <td style='font-weight:bold;color:blue;' >-1,000</td> <td>$<b>1,500</b></td><td>$<b>2,468</b></td> <td>$<b style='font-weight:bold;color:blue;' >-968</b></td> <td>0721563750</td> <tr><tr> <td>Cabdi ciise</td> <td>0</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >-200,000</td> <td>$<b>2,300</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,300</b></td> <td></td> <tr><tr> <td>cabdi dhajageey</td> <td>825,400</td> <td>825,400</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>20,335</b></td><td>$<b>20,335</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>cabdi fatah blakii</td> <td>10,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >10,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>cabdi halane</td> <td>123,200</td> <td>1,000</td> <td style='font-weight:bold;color:blue;' >122,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>cabdi ladhiif</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >-50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Cabdi wahab</td> <td>0</td> <td>8,500</td> <td style='font-weight:bold;color:blue;' >-8,500</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>Cabdi wali</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>606</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >606</b></td> <td></td> <tr><tr> <td>Cabdirahiim mohamed</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>150</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >100</b></td> <td></td> <tr><tr> <td>Cabdullahi husen</td> <td>0</td> <td>95,000</td> <td style='font-weight:bold;color:blue;' >-95,000</td> <td>$<b>0</b></td><td>$<b>2,500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,500</b></td> <td></td> <tr><tr> <td>Cabdullahi qaajo</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>202</b></td> <td>$<b style='font-weight:bold;color:blue;' >-202</b></td> <td></td> <tr><tr> <td>cabey osman</td> <td>0</td> <td>149,400</td> <td style='font-weight:bold;color:blue;' >-149,400</td> <td>$<b>7,371</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,371</b></td> <td></td> <tr><tr> <td>Cabs macalin</td> <td>369,800</td> <td>494,800</td> <td style='font-weight:bold;color:blue;' >-125,000</td> <td>$<b>76,800</b></td><td>$<b>70,800</b></td> <td>$<b style='font-weight:bold;color:blue;' >6,000</b></td> <td></td> <tr><tr> <td>Cadnaan</td> <td>0</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >-40,000</td> <td>$<b>0</b></td><td>$<b>270</b></td> <td>$<b style='font-weight:bold;color:blue;' >-270</b></td> <td></td> <tr><tr> <td>Cagaweene</td> <td>17,000</td> <td>17,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>484</b></td><td>$<b>848</b></td> <td>$<b style='font-weight:bold;color:blue;' >-364</b></td> <td></td> <tr><tr> <td>Cagod</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-10,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>cali balaakii</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>10,053</b></td><td>$<b>1,290</b></td> <td>$<b style='font-weight:bold;color:blue;' >8,763</b></td> <td></td> <tr><tr> <td>cali gacmeey</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>3,222</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,222</b></td> <td></td> <tr><tr> <td>Cali gawle</td> <td>0</td> <td>130,750</td> <td style='font-weight:bold;color:blue;' >-130,750</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Cali geedi</td> <td>40,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >40,000</td> <td>$<b>1,200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,200</b></td> <td></td> <tr><tr> <td>Cali jiis</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>64,103</b></td><td>$<b>54,103</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <tr><tr> <td>Cali nuur salaad</td> <td>0</td> <td>21</td> <td style='font-weight:bold;color:blue;' >-21</td> <td>$<b>0</b></td><td>$<b>251</b></td> <td>$<b style='font-weight:bold;color:blue;' >-251</b></td> <td></td> <tr><tr> <td>Carab</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>22</b></td> <td>$<b style='font-weight:bold;color:blue;' >-22</b></td> <td></td> <tr><tr> <td>Carabey &amp;chine</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>2,965</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,965</b></td> <td></td> <tr><tr> <td>ciise haashi afrah</td> <td>994,200</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >989,200</td> <td>$<b>1,254</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,254</b></td> <td></td> <tr><tr> <td>cija yare</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>9,340</b></td><td>$<b>10,040</b></td> <td>$<b style='font-weight:bold;color:blue;' >-700</b></td> <td></td> <tr><tr> <td>Daa,our m. Muuse</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,000</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>daadir amco</td> <td>1,000</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >-69,000</td> <td>$<b>22,800</b></td><td>$<b>26,472</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,672</b></td> <td>0700921226</td> <tr><tr> <td>daahir dahab</td> <td>0</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >-100,000</td> <td>$<b>0</b></td><td>$<b>200</b></td> <td>$<b style='font-weight:bold;color:blue;' >-200</b></td> <td></td> <tr><tr> <td>dahaba cali comar</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>340</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >340</b></td> <td></td> <tr><tr> <td>dahabo dowlo</td> <td>913,500</td> <td>1,113,500</td> <td style='font-weight:bold;color:blue;' >-200,000</td> <td>$<b>35,000</b></td><td>$<b>10,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >25,000</b></td> <td></td> <tr><tr> <td>DEEQA sabca</td> <td>746,500</td> <td>0</td> <td style='font-weight:bold;color:blue;' >746,500</td> <td>$<b>19,560</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >19,560</b></td> <td></td> <tr><tr> <td>DHaga cade</td> <td>352,000</td> <td>170,000</td> <td style='font-weight:bold;color:blue;' >182,000</td> <td>$<b>400</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >400</b></td> <td></td> <tr><tr> <td>Dhiblaaw</td> <td>0</td> <td>4,000</td> <td style='font-weight:bold;color:blue;' >-4,000</td> <td>$<b>0</b></td><td>$<b>305</b></td> <td>$<b style='font-weight:bold;color:blue;' >-305</b></td> <td></td> <tr><tr> <td>dibad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>50,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >50,000</b></td> <td></td> <tr><tr> <td>digle</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>39,145</b></td><td>$<b>38,367</b></td> <td>$<b style='font-weight:bold;color:blue;' >778</b></td> <td>0708451414</td> <tr><tr> <td>diyo</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>762</b></td> <td>$<b style='font-weight:bold;color:blue;' >-762</b></td> <td></td> <tr><tr> <td>DUBAI</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,124</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,124</b></td> <td></td> <tr><tr> <td>dukaanka</td> <td>185,000</td> <td>2,161,250</td> <td style='font-weight:bold;color:blue;' >-1,976,250</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Duqjiin</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-500</b></td> <td></td> <tr><tr> <td>duraan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>28,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-28,000</b></td> <td></td> <tr><tr> <td>eedo shukri colow</td> <td>3,767,230</td> <td>2,183,500</td> <td style='font-weight:bold;color:blue;' >1,583,730</td> <td>$<b>15,700</b></td><td>$<b>17,929</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,229</b></td> <td></td> <tr><tr> <td>FAA,izo USA</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,643</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,643</b></td> <td></td> <tr><tr> <td>Faadumo mahamed</td> <td>14,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >14,000</td> <td>$<b>284</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >284</b></td> <td></td> <tr><tr> <td>Faadumo najiib</td> <td>1,000,000</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >900,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Faracade</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>981</b></td><td>$<b>1,874</b></td> <td>$<b style='font-weight:bold;color:blue;' >-893</b></td> <td></td> <tr><tr> <td>Fardowso c/laahi</td> <td>15,400</td> <td>18,400</td> <td style='font-weight:bold;color:blue;' >-3,000</td> <td>$<b>0</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-100</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>Farhiyo mursal</td> <td>514,000</td> <td>100,000</td> <td style='font-weight:bold;color:blue;' >414,000</td> <td>$<b>0</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >-500</b></td> <td></td> <tr><tr> <td>Fartuun faarah</td> <td>145,000</td> <td>25,000</td> <td style='font-weight:bold;color:blue;' >120,000</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >200</b></td> <td></td> <tr><tr> <td>Foohle</td> <td>1,180,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,180,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Galad maashka</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>55,000</b></td><td>$<b>25,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >30,000</b></td> <td></td> <tr><tr> <td>Ganeey</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>522</b></td> <td>$<b style='font-weight:bold;color:blue;' >-522</b></td> <td></td> <tr><tr> <td>Ganey amal</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>522</b></td> <td>$<b style='font-weight:bold;color:blue;' >-522</b></td> <td></td> <tr><tr> <td>Garaacd cumar</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>13,496</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >13,496</b></td> <td>7239706</td> <tr><tr> <td>Geeley</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>28,859</b></td><td>$<b>28,038</b></td> <td>$<b style='font-weight:bold;color:blue;' >821</b></td> <td></td> <tr><tr> <td>Guuleed qooryarey</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>150</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >150</b></td> <td></td> <tr><tr> <td>Haaji muhudiin</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>568,500</b></td><td>$<b>568,583</b></td> <td>$<b style='font-weight:bold;color:blue;' >-83</b></td> <td></td> <tr><tr> <td>haaji uk</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>10,355</b></td> <td>$<b style='font-weight:bold;color:blue;' >-10,355</b></td> <td></td> <tr><tr> <td>hakabsade</td> <td>0</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >-30,000</td> <td>$<b>22,833</b></td><td>$<b>25,100</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,267</b></td> <td></td> <tr><tr> <td>Halima dheerey</td> <td>0</td> <td>11,400</td> <td style='font-weight:bold;color:blue;' >-11,400</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Hamdi Hawaii taash</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,967</b></td><td>$<b>2,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-33</b></td> <td></td> <tr><tr> <td>Hanad liibaan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>100</b></td><td>$<b>100</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>harago &amp; dibad chine</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>38,867</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >38,867</b></td> <td></td> <tr><tr> <td>harago qaas</td> <td>0</td> <td>4,343,193</td> <td style='font-weight:bold;color:blue;' >-4,343,193</td> <td>$<b>0</b></td><td>$<b>34,047</b></td> <td>$<b style='font-weight:bold;color:blue;' >-34,047</b></td> <td>0722584840</td> <tr><tr> <td>hassan dhiif</td> <td>35,000</td> <td>35,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>21,266</b></td><td>$<b>26,835</b></td> <td>$<b style='font-weight:bold;color:blue;' >-5,569</b></td> <td>0722269681</td> <tr><tr> <td>Hassan mohamed</td> <td>1,136,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,136,000</td> <td>$<b>36,250</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >36,250</b></td> <td></td> <tr><tr> <td>Hassan qalinle</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>203</b></td> <td>$<b style='font-weight:bold;color:blue;' >-203</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>hassan yalahoow</td> <td>400,000</td> <td>433,647</td> <td style='font-weight:bold;color:blue;' >-33,647</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>hawalada taaj</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>330,443</b></td><td>$<b>332,650</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,207</b></td> <td></td> <tr><tr> <td>Hinda husein</td> <td>10,000</td> <td>22,000</td> <td style='font-weight:bold;color:blue;' >-12,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Hodman &amp;xarago</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >100,000</td> <td>$<b>0</b></td><td>$<b>3,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,000</b></td> <td></td> <tr><tr> <td>Hure</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>husen cabdi kariin</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>102</b></td> <td>$<b style='font-weight:bold;color:blue;' >-102</b></td> <td></td> <tr><tr> <td>husen hirsi</td> <td>0</td> <td>312,500</td> <td style='font-weight:bold;color:blue;' >-312,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>husen jaloose</td> <td>1,752,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >1,752,000</td> <td>$<b>0</b></td><td>$<b>753</b></td> <td>$<b style='font-weight:bold;color:blue;' >-753</b></td> <td>0722230453</td> <tr><tr> <td>Ifrah cabdi</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>702</b></td><td>$<b>102</b></td> <td>$<b style='font-weight:bold;color:blue;' >600</b></td> <td></td> <tr><tr> <td>ismaaciil tifow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>30,394</b></td><td>$<b>33,896</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,502</b></td> <td></td> <tr><tr> <td>Isxaaq</td> <td>733,540</td> <td>612,180</td> <td style='font-weight:bold;color:blue;' >121,360</td> <td>$<b>6,010</b></td><td>$<b>5,983</b></td> <td>$<b style='font-weight:bold;color:blue;' >27</b></td> <td></td> <tr><tr> <td>Jeeb gale</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>800</b></td> <td>$<b style='font-weight:bold;color:blue;' >-800</b></td> <td></td> <tr><tr> <td>Jeylaani</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>22,180</b></td><td>$<b>26,218</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,038</b></td> <td></td> <tr><tr> <td>laba bahood</td> <td>5,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >5,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Lama yaqaan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >200</b></td> <td></td> <tr><tr> <td>Li&igrave;baan mire</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>254</b></td> <td>$<b style='font-weight:bold;color:blue;' >-254</b></td> <td></td> <tr><tr> <td>liibaan maxamyd culusow</td> <td>0</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >-50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>M.cali sayle</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,430</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,430</b></td> <td></td> <tr><tr> <td>M.iimaan afrah</td> <td>100,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >100,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>M.omar juba</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>5,000</b></td><td>$<b>2,400</b></td> <td>$<b style='font-weight:bold;color:blue;' >2,600</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>m.saciid caamir</td> <td>0</td> <td>16,000</td> <td style='font-weight:bold;color:blue;' >-16,000</td> <td>$<b>0</b></td><td>$<b>970</b></td> <td>$<b style='font-weight:bold;color:blue;' >-970</b></td> <td></td> <tr><tr> <td>maahir gaarisa</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>4,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >4,000</b></td> <td></td> <tr><tr> <td>Maamo luul</td> <td>160,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >160,000</td> <td>$<b>50</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >50</b></td> <td></td> <tr><tr> <td>macalin c/caziiz</td> <td>80,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >80,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Macalin cabdi rahiim</td> <td>71,000</td> <td>79,000</td> <td style='font-weight:bold;color:blue;' >-8,000</td> <td>$<b>1,798</b></td><td>$<b>699</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,099</b></td> <td></td> <tr><tr> <td>macalin cali seyle</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,430</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,430</b></td> <td></td> <tr><tr> <td>Macalin ciise</td> <td>0</td> <td>15,000</td> <td style='font-weight:bold;color:blue;' >-15,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>macalin macow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>10</b></td><td>$<b>102</b></td> <td>$<b style='font-weight:bold;color:blue;' >-92</b></td> <td></td> <tr><tr> <td>macalin shardi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,549</b></td><td>$<b>499</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,050</b></td> <td></td> <tr><tr> <td>mahad butugeey</td> <td>50,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >50,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Mahamuud qaali</td> <td>206,850</td> <td>200,000</td> <td style='font-weight:bold;color:blue;' >6,850</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>maxamuud c/rahmaan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>1,600</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,600</b></td> <td></td> <tr><tr> <td>Maxamuud mahdi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>602</b></td><td>$<b>532</b></td> <td>$<b style='font-weight:bold;color:blue;' >70</b></td> <td></td> <tr><tr> <td>maxamuud qali</td> <td>396,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >396,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>MD qaas</td> <td>57,150</td> <td>0</td> <td style='font-weight:bold;color:blue;' >57,150</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>mohamed caweer</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>356</b></td> <td>$<b style='font-weight:bold;color:blue;' >-356</b></td> <td></td> <tr><tr> <td>mohamed cilmi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>813</b></td><td>$<b>66</b></td> <td>$<b style='font-weight:bold;color:blue;' >747</b></td> <td></td> <tr><tr> <td>mohamed geesey</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-10,000</td> <td>$<b>0</b></td><td>$<b>381</b></td> <td>$<b style='font-weight:bold;color:blue;' >-381</b></td> <td></td> <tr><tr> <td>mohamed haji c/lahi</td> <td>5,700,000</td> <td>5,700,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>145,643</b></td><td>$<b>121,921</b></td> <td>$<b style='font-weight:bold;color:blue;' >23,722</b></td> <td>0722729350</td> <tr><tr> <td>Mohamed husen macalin</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>16,145</b></td><td>$<b>2,511</b></td> <td>$<b style='font-weight:bold;color:blue;' >13,634</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>Mohamed osman</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>12,587</b></td><td>$<b>16,187</b></td> <td>$<b style='font-weight:bold;color:blue;' >-3,600</b></td> <td></td> <tr><tr> <td>mohamed sheikh husen</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>124,783</b></td><td>$<b>132,086</b></td> <td>$<b style='font-weight:bold;color:blue;' >-7,303</b></td> <td>0728521177</td> <tr><tr> <td>Mohamed yare</td> <td>0</td> <td>14,000</td> <td style='font-weight:bold;color:blue;' >-14,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Mohamed yuusuf</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>7,028</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >7,028</b></td> <td></td> <tr><tr> <td>Muhudiin ibrahim</td> <td>0</td> <td>2,000</td> <td style='font-weight:bold;color:blue;' >-2,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Muhudiincali</td> <td>2,095,000</td> <td>2,095,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>28,889</b></td><td>$<b>31,435</b></td> <td>$<b style='font-weight:bold;color:blue;' >-2,546</b></td> <td></td> <tr><tr> <td>Muhudinn c/le</td> <td>2,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >2,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Muno&amp;harago</td> <td>0</td> <td>3,500</td> <td style='font-weight:bold;color:blue;' >-3,500</td> <td>$<b>1,200</b></td><td>$<b>2,207</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,007</b></td> <td></td> <tr><tr> <td>mustaf hiraabe</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>39,858</b></td><td>$<b>39,155</b></td> <td>$<b style='font-weight:bold;color:blue;' >703</b></td> <td></td> <tr><tr> <td>Naciima iimaan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>102</b></td> <td>$<b style='font-weight:bold;color:blue;' >-102</b></td> <td></td> <tr><tr> <td>najiib &amp;castamers</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>100</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >100</b></td> <td></td> <tr><tr> <td>Naleey</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>500</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >500</b></td> <td></td> <tr><tr> <td>Nasri gacmeey</td> <td>9,000</td> <td>22,500</td> <td style='font-weight:bold;color:blue;' >-13,500</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Nasro c/laahi warsame</td> <td>65,000</td> <td>40,000</td> <td style='font-weight:bold;color:blue;' >25,000</td> <td>$<b>200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >200</b></td> <td></td> <tr><tr> <td>Nasro cali hsan</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>5,540</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,540</b></td> <td></td> <tr><tr> <td>Nastexo A. faarah</td> <td>410,000</td> <td>400,000</td> <td style='font-weight:bold;color:blue;' >10,000</td> <td>$<b>300</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >300</b></td> <td></td> <tr><tr> <td>Nuur Ahmed sheikh</td> <td>0</td> <td>10,000</td> <td style='font-weight:bold;color:blue;' >-10,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>odawaa geesey</td> <td>32,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >32,000</td> <td>$<b>0</b></td><td>$<b>4,401</b></td> <td>$<b style='font-weight:bold;color:blue;' >-4,401</b></td> <td></td> <tr><tr> <td>omar agoon</td> <td>114,400</td> <td>123,500</td> <td style='font-weight:bold;color:blue;' >-9,100</td> <td>$<b>1,068</b></td><td>$<b>2,268</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,200</b></td> <td>0723543269</td> <tr><tr> <td>Omar hanad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>2,731,124</b></td><td>$<b>2,722,072</b></td> <td>$<b style='font-weight:bold;color:blue;' >9,052</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>Omar muhudiin</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>7,574</b></td><td>$<b>8,401</b></td> <td>$<b style='font-weight:bold;color:blue;' >-827</b></td> <td></td> <tr><tr> <td>Osman</td> <td>860,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >860,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Osman bunow</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,800</b></td><td>$<b>2,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,800</b></td> <td></td> <tr><tr> <td>Osman caati</td> <td>0</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >-5,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Qaaraan maxamed cade</td> <td>600,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >600,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Qaaran awoowe ahmed</td> <td>20,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >20,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Qoor cade</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>56,214</b></td><td>$<b>58,119</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,905</b></td> <td></td> <tr><tr> <td>Rahmo haaji</td> <td>38,200</td> <td>5,000</td> <td style='font-weight:bold;color:blue;' >33,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Saacid Ahmed fudeed</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td>0722169717</td> <tr><tr> <td>sacdiya &amp; odawaaa</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>5,036</b></td><td>$<b>3,996</b></td> <td>$<b style='font-weight:bold;color:blue;' >1,040</b></td> <td></td> <tr><tr> <td>sacdiya cabdi dheere</td> <td>3,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >3,000</td> <td>$<b>5,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,000</b></td> <td></td> <tr><tr> <td>Sacdiya yuusuf</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>2,000</b></td><td>$<b>1,150</b></td> <td>$<b style='font-weight:bold;color:blue;' >850</b></td> <td></td> <tr><tr> <td>Saciid aw cali</td> <td>0</td> <td>33,000</td> <td style='font-weight:bold;color:blue;' >-33,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>saciid cali kulane</td> <td>173,919</td> <td>50,000</td> <td style='font-weight:bold;color:blue;' >123,919</td> <td>$<b>18,582</b></td><td>$<b>2,465</b></td> <td>$<b style='font-weight:bold;color:blue;' >16,117</b></td> <td>0721133022</td> <tr><tr> <td>Saciid dilfaaq</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>6,300</b></td><td>$<b>7,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-700</b></td> <td></td> <tr><tr> <td>saciid odawaa</td> <td>400,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >400,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>salad geeley</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>6,880</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >6,880</b></td> <td></td> <tr><tr> <td>Sanbuur</td> <td>3,300,000</td> <td>2,000,000</td> <td style='font-weight:bold;color:blue;' >1,300,000</td> <td>$<b>10,000</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >10,000</b></td> <td></td> <tr><tr> <td>Sarqaani</td> <td>0</td> <td>25,000</td> <td style='font-weight:bold;color:blue;' >-25,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Saydul balad</td> <td>0</td> <td>156,200</td> <td style='font-weight:bold;color:blue;' >-156,200</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr><th>Name </th> <th>Cash In </th> <th> Cash Out </th> <th> Cash Balance </th> <th>Dollar In </th> <th>Dollar Out</th> <th>Dollar Balance</th> <th> Mobile </th>  </tr><tr> <td>sayid cali cirooy</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Sayid cali cirooy</td> <td>96,000</td> <td>0</td> <td style='font-weight:bold;color:blue;' >96,000</td> <td>$<b>0</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Sayod cali</td> <td>0</td> <td>78,227</td> <td style='font-weight:bold;color:blue;' >-78,227</td> <td>$<b>0</b></td><td>$<b>50</b></td> <td>$<b style='font-weight:bold;color:blue;' >-50</b></td> <td></td> <tr><tr> <td>Shaafi dheere</td> <td>0</td> <td>20,000</td> <td style='font-weight:bold;color:blue;' >-20,000</td> <td>$<b>5,200</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >5,200</b></td> <td></td> <tr><tr> <td>sheikh ahmed</td> <td>30,000</td> <td>30,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>700</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >700</b></td> <td></td> <tr><tr> <td>Sheylilaah</td> <td>890,000</td> <td>890,000</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>116,503</b></td><td>$<b>116,350</b></td> <td>$<b style='font-weight:bold;color:blue;' >153</b></td> <td></td> <tr><tr> <td>shirkada waahaan</td> <td>71,800</td> <td>71,800</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>20,600</b></td><td>$<b>14,035</b></td> <td>$<b style='font-weight:bold;color:blue;' >6,565</b></td> <td></td> <tr><tr> <td>Sucdi m.salaad</td> <td>457,600</td> <td>60,600</td> <td style='font-weight:bold;color:blue;' >397,000</td> <td>$<b>98</b></td><td>$<b>98</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>Taagane</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>1,000</b></td> <td>$<b style='font-weight:bold;color:blue;' >-1,000</b></td> <td></td> <tr><tr> <td>taakulenta A.m. hiraabe</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>240</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >240</b></td> <td></td> <tr><tr> <td>timir geele</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>0</b></td><td>$<b>124</b></td> <td>$<b style='font-weight:bold;color:blue;' >-124</b></td> <td></td> <tr><tr> <td>Ugaaska</td> <td>0</td> <td>3,000</td> <td style='font-weight:bold;color:blue;' >-3,000</td> <td>$<b>50</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >50</b></td> <td></td> <tr><tr> <td>waliyulaahi</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>992,620</b></td><td>$<b>902,012</b></td> <td>$<b style='font-weight:bold;color:blue;' >90,608</b></td> <td></td> <tr><tr> <td>xabad cali siyaad</td> <td>0</td> <td>0</td> <td style='font-weight:bold;color:blue;' >0</td> <td>$<b>3,500</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,500</b></td> <td></td> <tr><tr> <td>Xarago qaas</td> <td>0</td> <td>4,151,393</td> <td style='font-weight:bold;color:blue;' >-4,151,393</td> <td>$<b>0</b></td><td>$<b>34,047</b></td> <td>$<b style='font-weight:bold;color:blue;' >-34,047</b></td> <td></td> <tr><tr> <td>zahro indha ceel</td> <td>18,800</td> <td>0</td> <td style='font-weight:bold;color:blue;' >18,800</td> <td>$<b>3,555</b></td><td>$<b>21</b></td> <td>$<b style='font-weight:bold;color:blue;' >3,534</b></td> <td></td> <tr><tr> <td>Zakriye</td> <td>50,000</td> <td>70,000</td> <td style='font-weight:bold;color:blue;' >-20,000</td> <td>$<b>500</b></td><td>$<b>500</b></td> <td>$<b style='font-weight:bold;color:blue;' >0</b></td> <td></td> <tr><tr> <td>ZAMZAM maxamuud</td> <td>5,200,000</td> <td>25,000</td> <td style='font-weight:bold;color:blue;' >5,175,000</td> <td>$<b>38,861</b></td><td>$<b>0</b></td> <td>$<b style='font-weight:bold;color:blue;' >38,861</b></td> <td>0720221024</td> <tr></table><br><table  class='table' ><tr><th>Total Cash In</th> <th> Total Cash Out</th> <th>Total Cash Balance</th> <th>Total Dollar In </th> <th>Total Dollar Out</th> <th> Total Dollar Balance</th></tr><tr><td>73,406,766</td><td>59,192,874</td><td style='font-weight:bold;color:blue;' >14,213,892</td><td>$7,090,837</td><td>$6,590,268</td><td style='font-weight:bold;color:blue;'>$500,569</td></tr></table></body><html>

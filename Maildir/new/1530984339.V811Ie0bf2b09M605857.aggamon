@@ -1,0 +1,309 @@
+Return-Path: <>
+X-Original-To: dh_cfc524@aggamon.dreamhost.com
+Delivered-To: dh_cfc524@aggamon.dreamhost.com
+Received: by aggamon.dreamhost.com (Postfix)
+	id 921951A0078; Sat,  7 Jul 2018 10:25:39 -0700 (PDT)
+Date: Sat,  7 Jul 2018 10:25:39 -0700 (PDT)
+From: MAILER-DAEMON@aggamon.dreamhost.com (Mail Delivery System)
+Subject: Undelivered Mail Returned to Sender
+To: dh_cfc524@aggamon.dreamhost.com
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="633B21A006B.1530984339/aggamon.dreamhost.com"
+Message-Id: <20180707172539.921951A0078@aggamon.dreamhost.com>
+
+This is a MIME-encapsulated message.
+
+--633B21A006B.1530984339/aggamon.dreamhost.com
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
+
+This is the mail system at host aggamon.dreamhost.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+If you are a current customer of DreamHost, please contact our
+technical support team here
+
+https://panel.dreamhost.com/support
+
+If you are not a customer please use our contact form at.
+
+http://dreamhost.com/contact
+
+If you do so, please include this email in your support ticket. You can
+delete your own text from the attached returned message.
+
+                DreamHost Email Support
+
+<yahyeabdirashid@gmail.com>: host
+    iad1-shared-relay1.dreamhost.com[208.113.157.50] said: 550 5.7.1 Sender
+    domain not allowed. Please read: http://dhurl.org/20b D21 (in reply to end
+    of DATA command)
+
+--633B21A006B.1530984339/aggamon.dreamhost.com
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; aggamon.dreamhost.com
+X-Postfix-Queue-ID: 633B21A006B
+X-Postfix-Sender: rfc822; dh_cfc524@aggamon.dreamhost.com
+Arrival-Date: Sat,  7 Jul 2018 10:25:39 -0700 (PDT)
+
+Final-Recipient: rfc822; yahyeabdirashid@gmail.com
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; iad1-shared-relay1.dreamhost.com
+Diagnostic-Code: smtp; 550 5.7.1 Sender domain not allowed. Please read:
+    http://dhurl.org/20b D21
+
+--633B21A006B.1530984339/aggamon.dreamhost.com
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Return-Path: <dh_cfc524@aggamon.dreamhost.com>
+Received: by aggamon.dreamhost.com (Postfix, from userid 16033263)
+	id 633B21A006B; Sat,  7 Jul 2018 10:25:39 -0700 (PDT)
+To: yahyeabdirashid@gmail.com
+Subject: 
+X-PHP-Originating-Script: 16033263:inc_func.php
+From: sample@gmail.com
+Reply-To: sample@gmail.com
+Message-Id: <20180707172539.633B21A006B@aggamon.dreamhost.com>
+Date: Sat,  7 Jul 2018 10:25:39 -0700 (PDT)
+
+<!DOCTYPE html>
+    <html>
+    <head>
+      <style>
+
+  
+ body{
+ font:12pt "Times New Roman", TimesNR, Times,serif;
+ }
+ 
+  img {
+ border:none;
+ }
+ 
+/*  
+ label{
+ clear:both;
+  display:block;
+  float:left;
+  font-weight:bold;
+  margin-right:10px;
+ 
+  text-align:right;
+  width:auto;
+   
+  font-size:15px;
+  color:white;
+  text-shadow:1px 1px 3px #080808;
+} */
+
+ ul li{
+border:0; margin-top:8px; padding:0; list-style:none;
+}
+
+
+li{
+border:0; margin-top:8px; padding:0; list-style:none;
+}
+
+
+
+div.screenDiv_1,div.ui-dialog,.ui-dialog .ui-widget, .ui-widget-content, .ui-corner-all, .ui-front, .ui-dialog-buttons, .ui-draggable, .ui-resizable {
+ display:none;
+ } 
+ 
+ #recieptPrint_formant,#chechPrint_formant{
+  padding:1.3em;
+   display: list-item;
+  
+ }
+ #recieptPrint_formant table th {
+text-align:left;
+ }
+
+.redBalance{
+color:red;
+font-weight: bold;
+}
+ 
+.print_hidden{
+    display: none;
+}
+
+
+
+
+/*table design */
+
+.table {
+    
+  background: white;
+  border-radius:31px;
+  border-collapse:collapse;
+ 
+  margin: auto;
+  
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+  display: table; 
+  padding: 31px;  
+ 
+}
+ .badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    margin-left:3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #999;
+    border-radius: 10px;
+}
+
+
+.th {
+  border-radius: 2em;  
+  color:#D5DDE5;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: bold;
+  padding:16px;
+  
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:16px;
+  font-weight: bold;
+  padding:16px;
+  
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+.table th:first-child {
+  border-top-left-radius:3px;
+}
+
+.table th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+.table tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+
+/*.table tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;
+}*/
+ 
+.table tr:first-child {
+  border-top:none;
+}
+
+.table tr:last-child {
+  border-bottom:none;
+}
+ 
+.table tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+/*.table tr:nth-child(odd):hover td {
+  background:#4E5066;
+}*/
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+ 
+.table td {
+  background:#FFFFFF;
+  padding:15px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:16px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+.table td:last-child {
+  border-right: 0px;
+}
+
+/* end of table design */
+
+
+
+
+
+
+.prescription_table {
+    width: 77%;
+  border-collapse: collapse;
+  border:none;
+}
+ 
+
+
+.prescription_table th,.prescription_table td {
+  border:1px solid black;
+    padding:8px;
+  border-bottom:1px solid black;
+}
+
+.prescription_table hr{    
+    border-bottom: 1px solid black;
+    width: 100%;    
+
+}
+ 
+ 
+
+      </style>
+    </head>
+    <body>
+          &lt;h3 style=\n    font-style:  italic;\n    font-size: 15px;\n    font-weight: normal;\n&gt; al-baraka optical &lt;p style=\n    font-style:  italic;\n    font-size: 13px;\n    font-weight: normal;\n    margin-top: 1px;\n&gt; call us: mobile: +254-755-55-5-55 , Address: OGINGA OGINGA STREET, KISUMU ,KENYA,    email: sample@gmail.com\n &lt;/p&gt;&lt;/h3&gt;&lt;hr id=hr style=margin-left:0; width: 80%;border-bottom: 1px solid blue;&gt;&lt;div id=recieptPrint_formant&gt;&lt;table class=display table style=margin-bottom: 37px;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=border: none;&gt;&lt;/th&gt;  &lt;th&gt;Right &lt;/th&gt;&lt;th style=border: none;&gt;&lt;/th&gt;&lt;th style=border: none;&gt;&lt;/th&gt;&lt;th style=border: none;&gt;&lt;/th&gt; &lt;th style=border: none;&gt;&lt;/th&gt;&lt;th style=border: none;&gt;&lt;/th&gt;&lt;th style=border: none;&gt;&lt;/th&gt;&lt;th&gt;Left&lt;/th&gt;&lt;/tr&gt;\n    &lt;tr&gt;&lt;th style=border: none;&gt;&lt;/th&gt;&lt;th&gt;SPH&lt;/th&gt;&lt;th&gt;CYL&lt;/th&gt;&lt;th&gt;AXIS&lt;/th&gt;&lt;th&gt;VA&lt;/th&gt; &lt;th&gt;SPH&lt;/th&gt;&lt;th&gt;CYL&lt;/th&gt;&lt;th&gt;AXIS&lt;/th&gt;&lt;th&gt;VA&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=text-align:right; border: none; border-bottom: 1px solid black;&gt;Dist: &lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 1d&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 2d&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 3d&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 4d&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 22&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 22&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 21&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 8&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=border: none; text-align:right; &gt;Near: &lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 1n&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 2n&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 3n&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 4n&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 8&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 9&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 6&lt;/pre&gt;&lt;/td&gt;&lt;td&gt;  &lt;pre&gt;&lt;span style=font-style: italic;&gt;&lt;/span&gt; 90&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;&lt;/div&gt;&lt;hr id=hr style=margin-left:0; width: 80%;border-bottom: 1px solid blue;&gt; \n&lt;h3 style=\n    font-style:  italic;\n    font-size: 15px;\n    font-weight: normal;\n&gt; al-baraka optical &lt;p style=\n    font-style:  italic;\n    font-size: 13px;\n    font-weight: normal;\n    margin-top: 1px;\n&gt; call us: mobile: +254-755-55-5-55 , Address: OGINGA OGINGA STREET, KISUMU ,KENYA,    email: sample@gmail.com\n &lt;/p&gt;&lt;/h3&gt;
+    </body>
+    </html>
+
+--633B21A006B.1530984339/aggamon.dreamhost.com--

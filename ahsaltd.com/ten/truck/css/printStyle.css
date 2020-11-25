@@ -1,0 +1,50 @@
+ 
+ body{
+ font:12pt "Times New Roman", TimesNR, Times,serif;
+ }
+ 
+  img {
+ border:none;
+ }
+ 
+/*  
+ label{
+ clear:both;
+	display:block;
+	float:left;
+	font-weight:bold;
+	margin-right:10px;
+ 
+	text-align:right;
+	width:auto;
+	 
+	font-size:15px;
+	color:white;
+	text-shadow:1px 1px 3px #080808;
+} */
+
+ ul li{
+border:0; margin-top:8px; padding:0; list-style:none;
+}
+
+
+li{
+border:0; margin-top:8px; padding:0; list-style:none;
+}
+
+
+
+div.screenDiv_1,div.ui-dialog,.ui-dialog .ui-widget, .ui-widget-content, .ui-corner-all, .ui-front, .ui-dialog-buttons, .ui-draggable, .ui-resizable {
+ display:none;
+ } 
+ 
+ #recieptPrint_formant,#chechPrint_formant{
+  padding:1.3em;
+   display: list-item;
+  
+ }
+ #recieptPrint_formant table th {
+text-align:left;
+ }
+
+ 

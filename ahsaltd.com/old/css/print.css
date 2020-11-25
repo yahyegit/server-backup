@@ -1,0 +1,24 @@
+#main_tabs, .actions_collm_data, .toggleCoppyRight, .coppyRight, .trashImageBox, .hiddenFromPrinting {
+ 
+    display:    none          !important;
+ 
+}
+
+
+
+div.printerBox {
+    margin-top: 100px;
+    display:    block         !important;
+}
+
+
+div.printerBox {
+   padding:5px;
+}
+
+
+
+div.printerBox table{
+       margin-bottom: 20px;
+}
+

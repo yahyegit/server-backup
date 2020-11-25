@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+		<link rel="shortcut icon" type="image/ico" href="http://www.sprymedia.co.uk/media/images/favicon.ico">
+		
+		<title>FixedColumns example</title>
+		<style type="text/css" title="currentStyle">
+			@import "../../media/css/demo_page.css";
+			@import "../../media/css/demo_table.css";
+			td.indexLeft { background-color: white; border-right: 1px solid black; }
+			td.indexRight { background-color: white; border-left: 1px solid black; }
+			div.DTFC_LeftHeadWrapper th,
+			div.DTFC_RightHeadWrapper th {
+				border-bottom: 1px solid white !important;
+			}
+			div.DTFC_LeftFootWrapper th,
+			div.DTFC_RightFootWrapper th {
+				border-top: 1px solid white !important;
+			}
+		</style>
+		<script type="text/javascript" charset="utf-8" src="../../media/js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../../media/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" charset="utf-8" src="media/js/FixedColumns.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready( function () {
+				var oTable = $('#example').dataTable( {
+					"sScrollX": "100%",
+					"sScrollXInner": "150%",
+					"bScrollCollapse": true,
+					"fnDrawCallback": function ( oSettings ) {
+						/* Need to redo the counters if filtered or sorted */
+						if ( oSettings.bSorted || oSettings.bFiltered ) {
+							for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ ) {
+								this.fnUpdate( i+1, oSettings.aiDisplay[i], 0, false, false );
+								this.fnUpdate( i+1, oSettings.aiDisplay[i], 6, false, false );
+							}
+						}
+					},
+					"aoColumnDefs": [
+						{ "bSortable": false, "sClass": "indexLeft", "aTargets": [ 0 ] },
+						{ "bSortable": false, "sClass": "indexRight", "aTargets": [ -1 ] }
+					],
+					"aaSorting": [[ 1, 'asc' ]]
+				} );
+				
+				new FixedColumns( oTable, {
+					"iLeftColumns": 1,
+					"iRightColumns": 1
+				} );
+			} );
+		</script>
+	</head>
+	<body id="dt_example">
+		<div id="container">
+			<div class="full_width big">
+				FixedColumns example - left and right columns fixed
+			</div>
+			
+			<h1>Preamble</h1>
+			<p>FixedColumns allows columns to be fixed from both the left and right hand sides of the table. Fixing right hand-side columns is done by using the <i>iRightColumns</i> initialisation parameter, which works just the same as <i>iLeftColumns</i> does for the left side of the table. This example shows both the left and right columns being fixed in place, and a bit of initialisation of DataTables to provide index columns.</p>
+			
+			<h1>Live example</h1>
+			<div id="demo">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+	<thead>
+		<tr>
+			<th>lll</th>
+			<th>Rendering engine</th>
+			<th>Browser</th>
+			<th>Platform(s)</th>
+			<th>Engine version</th>
+			<th>CSS grade</th>
+			   <th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+				<th>lllll</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th width="3%">&nbsp;</th>
+			<th>Rendering engine</th>
+			<th>Browser</th>
+			<th>Platform(s)</th>
+			<th>Engine version</th>
+			<th>CSS grade</th>
+			<th width="3%">&nbsp;</th>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+				<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+				<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+
+
+
+
+			<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+				<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+		<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>			<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+				<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+		<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+
+
+
+
+
+
+		<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+				<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+		<tr >
+			<td>1</td>
+			<td>Trident</td>
+			<td>Internet  Explorer 4.0</td>
+			<td>Win 95+</td>
+			<td >44</td>
+			<td>lX</td>
+			<td>l1</td>
+			<td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+        <td>l1</td>
+		</tr>
+		  
+	</tbody>
+</table>
+			</div>
+			<div class="spacer"></div>
+			
+			
+			<h1>Initialisation code</h1>
+			<pre>$(document).ready( function () {
+	var oTable = $('#example').dataTable( {
+		"sScrollX": "100%",
+		"sScrollXInner": "150%",
+		"bScrollCollapse": true,
+		"fnDrawCallback": function ( oSettings ) {
+			/* Need to redo the counters if filtered or sorted */
+			if ( oSettings.bSorted || oSettings.bFiltered ) {
+				for ( var i=0, iLen=oSettings.aiDisplay.length ; i&lt;iLen ; i++ ) {
+					this.fnUpdate( i+1, oSettings.aiDisplay[i], 0, false, false );
+					this.fnUpdate( i+1, oSettings.aiDisplay[i], 6, false, false );
+				}
+			}
+		},
+		"aoColumnDefs": [
+			{ "bSortable": false, "sClass": "indexLeft", "aTargets": [ 0 ] },
+			{ "bSortable": false, "sClass": "indexRight", "aTargets": [ -1 ] }
+		],
+		"aaSorting": [[ 1, 'asc' ]]
+	} );
+	
+	new FixedColumns( oTable, {
+		"iLeftColumns": 1,
+		"iRightColumns": 1
+	} );
+} );</pre>
+
+
+			<h1>Documentation</h1>
+			<ul>
+				<li><a href="http://datatables.net/extras/fixedcolumns">Usage</a></li>
+				<li><a href="http://datatables.net/docs/FixedColumns">API / parameters</a></li>
+			</ul>
+
+			<h1>Basic examples</h1>
+			<ul>
+				<li><a href="index.html">Basic demo of FixedColumns with zero initialisation</a></li>
+				<li><a href="left_right_columns.html">Fix the left and right columns in place</a></li>
+				<li><a href="index_column.html">Index column attached to side of the table</a></li>
+				<li><a href="x_y_scrolling.html">Index column, but with Y scrolling and no pagination</a></li>
+				<li><a href="two_columns.html">Two columns fixed in place</a></li>
+				<li><a href="right_column.html">Fix the right column in place</a></li>
+				<li><a href="css_size.html">Speeding up row height matching with CSS</a></li>
+				<li><a href="themed.html">jQuery UI themed table with FixedColumns</a></li>
+			</ul>
+			
+			<h1>Advanced examples</h1>
+			<ul>
+				<li><a href="rowspan.html">Using ROWSPAN with FixedColumns</a></li>
+				<li><a href="server-side-processing.html">Server-side processing with FixedColumns</a></li>
+				<li><a href="col_filter.html">Individual column filtering</a></li>
+				<li><a href="scale_fixed.html">Setting the fixed column width and resizing the table</a></li>
+				<li><a href="scale_relative.html">Setting the fixed column width with relative sizing</a></li>
+				<li><a href="row_grouping_height.html">Row grouping by grouping like rows in the fixed column</a></li>
+				<li><a href="row_grouping.html">Row grouping by inserting a grouping row</a></li>
+			<ul>
+			
+			
+			<div id="footer" style="text-align:center;">
+				<span style="font-size:10px;">
+					FixedColumns and DataTables &copy; Allan Jardine 2011.<br>
+				</span>
+			</div>
+		</div>
+	</body>
+</html>

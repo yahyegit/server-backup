@@ -1,0 +1,11 @@
+[31-Oct-2015 08:31:53 America/Chicago] PHP Parse error:  syntax error, unexpected '=', expecting ')' in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 5
+[31-Oct-2015 08:32:47 America/Chicago] PHP Warning:  require(connet.php): failed to open stream: No such file or directory in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:32:47 America/Chicago] PHP Warning:  require(connet.php): failed to open stream: No such file or directory in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:32:47 America/Chicago] PHP Fatal error:  require(): Failed opening required 'connet.php' (include_path='.:/opt/php54/lib/php') in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:34:08 America/Chicago] PHP Warning:  require(connet.php): failed to open stream: No such file or directory in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:34:08 America/Chicago] PHP Warning:  require(connet.php): failed to open stream: No such file or directory in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:34:08 America/Chicago] PHP Fatal error:  require(): Failed opening required 'connet.php' (include_path='.:/opt/php54/lib/php') in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 3
+[31-Oct-2015 08:40:43 America/Chicago] PHP Parse error:  syntax error, unexpected ')', expecting :: (T_PAAMAYIM_NEKUDOTAYIM) in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 34
+[31-Oct-2015 08:41:33 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 39
+[31-Oct-2015 09:02:51 America/Chicago] PHP Parse error:  syntax error, unexpected 'count' (T_STRING), expecting ',' or ';' in /home1/yahye123/public_html/ahsa.ml/bugs/find.php on line 41
+[08-Mar-2016 16:26:30 America/Chicago] PHP Fatal error:  Cannot redeclare fix_balance_for_transactions() (previously declared in /home1/yahye123/public_html/ahsaltd.com/bugs/fix_balance.php:9) in /home1/yahye123/public_html/ahsaltd.com/connet.php on line 616
