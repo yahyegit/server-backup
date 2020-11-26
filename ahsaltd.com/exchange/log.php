@@ -23,7 +23,7 @@ function  loginNow($username,$password){
 
         $query_run = mysql_query($query_username);
 
-        if (mysql_result($query_run, 0) == 0){
+        if (mysql_result($query_run, 0) == 1){
 
               //  if he logged in 
 
